@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,9 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
         rb.AddForce(0, 0, speed * Time.deltaTime);
-
         if (Input.GetKey("d"))
 		{
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);

@@ -36,7 +36,7 @@ public class SpawnController : MonoBehaviour
         }
         for (int i = 0; i < qtMax; i++)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 1, GameObject.Find("ObstacleSpawner").transform.position.z);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 1, GameObject.Find("Obstacle Manager").transform.position.z);
             Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, Quaternion.identity);
         }
     }
