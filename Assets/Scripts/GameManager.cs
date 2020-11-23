@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
 	public float gameOverDelay = 0f;
 	public GameObject gameOverUI;
+	public bool gameHasEnded = false;
+
+	// Desliga o cursor
+	private void Start()
+	{
+		Cursor.visible = false;
+	}
 	public void EndGame()
 	{
 		//Desliga o movimento do jogador
@@ -13,19 +18,14 @@ public class GameManager : MonoBehaviour
 		//Manda a criação de obstáculos pra casa do caralho.
 		Destroy(GameObject.Find("Obstacle Manager"));
 
-		//Exibe a tela de GameOver, onde o ojogador pode voltar para o menu ou jogar novamente.
+		//Exibe a tela de GameOver depois de um tempo determinado
 		Invoke("GameOver", gameOverDelay);
 	}
+	// Torna o cursor visivel novamente e liga a tela de GameOver
 	public void GameOver()
 	{
+		gameHasEnded = true;
+		Cursor.visible = true;
 		gameOverUI.SetActive(true);
-	}
-	public void Restart()
-	{
-		SceneManager.LoadScene("Level");
-	}
-	public void ShowMenu()
-	{
-		SceneManager.LoadScene("Home");
 	}
 }
