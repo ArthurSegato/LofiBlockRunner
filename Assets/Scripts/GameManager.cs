@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		Cursor.visible = false;
+		GameObject.Find("ScoreManager").GetComponent<ScoreManager>().LoadScore();
 	}
 	public void EndGame()
 	{
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 	{
 		gameHasEnded = true;
 		Cursor.visible = true;
+		GameObject.Find("ScoreManager").GetComponent<ScoreManager>().SaveScore();
 		gameOverUI.SetActive(true);
 	}
 }
