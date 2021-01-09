@@ -1,15 +1,32 @@
 ﻿using UnityEngine;
+//using TMPro;
 public class GameManager : MonoBehaviour
 {
 	public float gameOverDelay = 0f;
 	public GameObject gameOverUI;
+	public GameObject developerModeUI;
+	//public TextMeshProUGUI fpsText;
+	//public TextMeshProUGUI buildText;
+	[HideInInspector]
 	public bool gameHasEnded = false;
+	public bool developerMode = false;
 
 	// Desliga o cursor
 	private void Start()
 	{
 		Cursor.visible = false;
-		GameObject.Find("ScoreManager").GetComponent<ScoreManager>().LoadScore();
+		//GameObject.Find("ScoreManager").GetComponent<ScoreManager>().LoadScore();
+
+		if (developerMode)
+		{
+			//developerModeUI.SetActive(true);
+			//buildText.text = ("BUILD: " + Application.version);
+		}
+	}
+	private void Update()
+	{
+		var fps = 1.0 / Time.deltaTime;
+		//fpsText.text = ("FPS: " + fps.ToString("0"));
 	}
 	public void EndGame()
 	{
@@ -27,7 +44,7 @@ public class GameManager : MonoBehaviour
 	{
 		gameHasEnded = true;
 		Cursor.visible = true;
-		GameObject.Find("ScoreManager").GetComponent<ScoreManager>().SaveScore();
+		//GameObject.Find("ScoreManager").GetComponent<ScoreManager>().SaveScore();
 		gameOverUI.SetActive(true);
 	}
 }

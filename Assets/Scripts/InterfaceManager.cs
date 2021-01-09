@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class InterfaceManager : MonoBehaviour
 {
-	public static UIManager instance;
 	//Garante que so vai ter uma UIManager em cada cena, e se não tiver, então cria uma
+	public static InterfaceManager instance;
 	void Awake()
 	{
 		if (instance == null)
@@ -61,6 +61,6 @@ public class UIManager : MonoBehaviour
 	//Toca o som do click do menu
 	public void PlaySound()
 	{
-		FindObjectOfType<AudioManager>().Play("MenuClick");
+		//Colocar novo sistema de som pro click
 	}
 }

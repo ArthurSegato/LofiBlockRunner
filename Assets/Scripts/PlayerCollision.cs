@@ -25,7 +25,7 @@ public class PlayerCollision : MonoBehaviour
 	}
 	public void changeModel()
 	{
-		FindObjectOfType<AudioManager>().Play("PlayerImpact");
+		//FindObjectOfType<AudioManager>().Play("PlayerImpact");
 		originalVersion.SetActive(false);
 		destroyedVersion.SetActive(true);
 	}

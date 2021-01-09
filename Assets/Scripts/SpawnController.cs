@@ -50,7 +50,7 @@ public class SpawnController : MonoBehaviour
 		}
 
         //Spawna o obstáculo
-        Vector3 spawnPos = new Vector3(spawnX, 1, GameObject.Find("Obstacle Manager").transform.position.z);
+        Vector3 spawnPos = new Vector3(spawnX, 1, GameObject.Find("ObstacleManager").transform.position.z);
         Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, Quaternion.identity);
     }
 }
