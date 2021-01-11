@@ -10,7 +10,7 @@ public class CameraShakeController : MonoBehaviour
 
 	public float rotationMultiplier = 15f;
 
-	//Só sei que balança a camera, o tutorial mandou eu fiz :v
+	
 	private void LateUpdate()
 	{
 		if (shakeTimeDuration > 0)

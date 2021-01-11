@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 		GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = false;
 
 		//Manda a criação de obstáculos pra casa do caralho.
-		Destroy(GameObject.Find("Obstacle Manager"));
+		GameObject.Find("ObstacleManager").SetActive(false);
 
 		//Exibe a tela de GameOver depois de um tempo determinado
 		Invoke("GameOver", gameOverDelay);
@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
 		gameHasEnded = true;
 		Cursor.visible = true;
 		//GameObject.Find("ScoreManager").GetComponent<ScoreManager>().SaveScore();
-		gameOverUI.SetActive(true);
+		//gameOverUI.SetActive(true);
 	}
 }

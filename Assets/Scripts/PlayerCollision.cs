@@ -14,19 +14,24 @@ public class PlayerCollision : MonoBehaviour
 		// Balança a camera
 		// Toca o som e muda o modelo inteiro pelo modelo quebrado
 		// chama a tela de game over
-		if (collisionInfo.collider.tag == "Obstacle")
+		if (collisionInfo.collider.CompareTag("Obstacle"))
 		{
 			FindObjectOfType<CameraShakeController>().StartShake(shakeDuration, shakePower);
 
-			changeModel();
+			ChangeModel();
+
+			PlayDeathSound();
 
 			FindObjectOfType<GameManager>().EndGame();
 		}
 	}
-	public void changeModel()
+	public void ChangeModel()
 	{
-		//FindObjectOfType<AudioManager>().Play("PlayerImpact");
 		originalVersion.SetActive(false);
 		destroyedVersion.SetActive(true);
+	}
+	public void PlayDeathSound()
+	{
+		
 	}
 }

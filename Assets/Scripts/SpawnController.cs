@@ -11,7 +11,7 @@ public class SpawnController : MonoBehaviour
     //Inicia o processo de spawnar os obstáculos em um dado tempo
     void Start()
     {
-        InvokeRepeating("SpawnObstacle", startDelay, spawnInterval);
+        InvokeRepeating(nameof(SpawnObstacle), startDelay, spawnInterval);
     }
 
     void SpawnObstacle()
@@ -26,14 +26,15 @@ public class SpawnController : MonoBehaviour
         }
         lastObstacleIndex = obstacleIndex;
         
+        
         //Define uma posição aleatória para o obstáculo 2
         if (obstacleIndex == 2)
 		{
-            spawnX = Random.Range(-4.5f, 4.5f);
+            spawnX = Random.Range(-5f, 5f);
         }
 
         //Define se o obstáculo 3 vai ficar no lado esquerdo ou direito
-        if (obstacleIndex == 3)
+        else if (obstacleIndex == 3)
         {
 			if (Random.Range(-2f, 2f) >= 0)
 			{
