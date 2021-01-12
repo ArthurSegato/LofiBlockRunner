@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SpawnController : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs;
     public float startDelay = 1.0f;
@@ -51,7 +51,7 @@ public class SpawnController : MonoBehaviour
 		}
 
         //Spawna o obstáculo
-        Vector3 spawnPos = new Vector3(spawnX, 1, GameObject.Find("ObstacleManager").transform.position.z);
+        Vector3 spawnPos = new Vector3(spawnX, 1, gameObject.transform.position.z);
         Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, Quaternion.identity);
     }
 }

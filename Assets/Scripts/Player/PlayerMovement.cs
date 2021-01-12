@@ -3,7 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     private InputManager inputManager;
-    public Rigidbody rb;
+    public Rigidbody playerRigidbody;
     public float speed = 0f;
     public float speedBoost = 0f;
     public float sidewaysForce = 0f;
@@ -29,19 +29,19 @@ public class PlayerMovement : MonoBehaviour
 	void FixedUpdate()
     {
         //Movimenta o personagem para a frente.
-        rb.AddForce(0, 0, speed * Time.deltaTime);
+        playerRigidbody.AddForce(0, 0, speed * Time.deltaTime);
 
         //Checa se ele tentou passar da barreira, e se tentou empurra ele de volta para a posição anterior.
         if (transform.position.x >= border)
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -border, border), transform.position.y, transform.position.z);
-            rb.AddForce(-5000f * Time.deltaTime, 0, 0);
+            playerRigidbody.AddForce(-5000f * Time.deltaTime, 0, 0);
 
         }
         if (transform.position.x <= -border)
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -border, border), transform.position.y, transform.position.z);
-            rb.AddForce(5000f * Time.deltaTime, 0, 0);
+            playerRigidbody.AddForce(5000f * Time.deltaTime, 0, 0);
         }
         //Checa se as teclas foram pressionadas, se forem, então adiciona a força no personagem.
         else
@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (inputManager.Player.Move.ReadValue<float>() > 0)
             {
-                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                playerRigidbody.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
             if (inputManager.Player.Move.ReadValue<float>() < 0)
             {
-                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                playerRigidbody.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
            
         }
