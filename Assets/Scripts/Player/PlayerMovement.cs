@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float sidewaysForce = 0f;
     public float sidewaysForceBoost = 0f;
     public float checkpointDistance = 0f;
-    private float checkpoint = 0f;
+    public float checkpoint = 0f;
     public float border = 0f;
 
 	private void Awake()

@@ -9,8 +9,6 @@ public class PlayerCollision : MonoBehaviour
 	public GameObject playerCracked;
 	public AudioSource audioSource;
 	public PlayerMovement playerMovement;
-	public float shakeDuration = 0f;
-	public float shakePower = 0f;
 
 	private void OnCollisionEnter(Collision collisionInfo)
 	{
@@ -23,7 +21,7 @@ public class PlayerCollision : MonoBehaviour
 		 */
 		if (collisionInfo.collider.CompareTag("Obstacle"))
 		{
-			mainCamera.GetComponent<CameraShakeController>().StartShake(shakeDuration, shakePower);
+			mainCamera.GetComponent<CameraShakeController>().StartShake();
 
 			ChangeModel();
 

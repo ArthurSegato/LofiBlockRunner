@@ -4,11 +4,12 @@ public class CameraShakeController : MonoBehaviour
 {
 
     private float shakeTimeDuration;
-    private float shakePower;
 	private float shakeFadeTime;
 	private float shakeRotation;
-
-	public float rotationMultiplier = 15f;
+	
+	public float shakeDuration = 0f;
+	public float shakePower = 0f;
+	public float rotationMultiplier = 0f;
 
 	
 	private void LateUpdate()
@@ -28,13 +29,12 @@ public class CameraShakeController : MonoBehaviour
 		}
 		transform.rotation = Quaternion.Euler(0f, 0f, shakeRotation * Random.Range(-2f, 2f));
 	}
-	public void StartShake(float lenght, float power)
+	public void StartShake()
 	{
-        shakeTimeDuration = lenght;
-        shakePower = power;
+        shakeTimeDuration = shakeDuration;
+        
+		shakeFadeTime = shakePower / shakeDuration;
 
-		shakeFadeTime = power / lenght;
-
-		shakeRotation = power * rotationMultiplier;
+		shakeRotation = shakePower * rotationMultiplier;
 	}
 }

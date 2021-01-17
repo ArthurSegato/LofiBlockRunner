@@ -1,9 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System.Threading;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InterfaceManager : MonoBehaviour
 {
-	//Garante que so vai ter uma UIManager em cada cena, e se não tiver, então cria uma
+
+	public GameObject gameManager;
+	public GameObject interfaceGame;
+	public GameObject player;
+
+	//Garante que so vai ter uma InterfaceManager em cada cena, e se não tiver, então cria uma
 	public static InterfaceManager instance;
 	void Awake()
 	{
@@ -18,31 +24,24 @@ public class InterfaceManager : MonoBehaviour
 		}
 		DontDestroyOnLoad(gameObject);
 	}
-
-	//Carrega a fase do jogo
-	public void StartGame()
+	private void Update()
 	{
-		SceneManager.LoadScene("Game");
+		if (gameManager.GetComponent<GameManager>().developerMode)
+		{
+			DeveloperModeInterface();
+		}
+		else
+		{
+			interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("DevModeDiv").style.display = DisplayStyle.None;
+		}
+		ScoreInterface();
 	}
-
-	//Carrega o menu sobre
-	public void ShowAbout()
-	{
-		SceneManager.LoadScene("About");
-	}
-
+	/*
 	//Finaliza o jogo
 	public void ExitGame()
 	{
 		Application.Quit();
 	}
-
-	//Volta pro menu inicial
-	public void BackToHome()
-	{
-		SceneManager.LoadScene("Home");
-	}
-
 	//Abre o meu github
 	public void OpenGithub()
 	{
@@ -62,5 +61,36 @@ public class InterfaceManager : MonoBehaviour
 	public void PlaySound()
 	{
 		//Colocar novo sistema de som pro click
+	}
+	*/
+	public void DeveloperModeInterface()
+	{
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("DevModeDiv").style.display = DisplayStyle.Flex;
+
+		double fps = 1.0 / Time.deltaTime;
+		
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeFps").text = "Fps: " + fps.ToString("0");
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeBuild").text = "Build: " + Application.version;
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeSpeed").text = "Speed: " + player.GetComponent<PlayerMovement>().speed;
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeForce").text = "Force: " + player.GetComponent<PlayerMovement>().sidewaysForce;
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeCheckPoint").text = "CheckPoint: " + player.GetComponent<PlayerMovement>().checkpoint;
+
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModePlayerPosition").text = "PlayerPosition: " + player.transform.position.z.ToString("0");
+		
+	}
+	public void ScoreInterface()
+	{
+		//Exibe a posição do jogador
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("ScoreText").text = (player.transform.position.z / 10).ToString("0");
+	}
+	public void GameOverInterface(int delay)
+	{
+		Thread.Sleep(delay);
+		//Chama tela de game over
 	}
 }
