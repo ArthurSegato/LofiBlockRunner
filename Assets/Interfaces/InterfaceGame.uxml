@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="ScoreDiv" style="font-size: 100%; align-items: center; justify-content: center; position: absolute; left: auto; width: 100%; top: 20%; -unity-font: resource(&apos;Fonts &amp; Materials/Roboto-Thin&apos;); color: rgba(37, 37, 37, 0.61); display: flex; -unity-text-align: middle-center; height: auto;">
-        <ui:Label text="0" display-tooltip-when-elided="true" name="ScoreText" style="color: rgba(37, 37, 37, 0.61);" />
+        <ui:Label text="0" display-tooltip-when-elided="true" name="ScoreText" style="color: rgba(37, 37, 37, 0.61); font-size: 100px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
     </ui:VisualElement>
     <ui:VisualElement name="DevModeDiv" style="-unity-font: resource(&apos;Fonts &amp; Materials/Roboto-Bold&apos;); font-size: 30px; color: rgba(37, 37, 37, 0.78); visibility: visible; display: none; position: absolute; width: 100%;">
         <ui:Label text="Fps:" display-tooltip-when-elided="true" name="DevModeFps" style="color: rgba(37, 37, 37, 0.78);" />
