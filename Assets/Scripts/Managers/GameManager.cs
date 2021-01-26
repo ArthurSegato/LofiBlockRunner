@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		Cursor.visible = false;
-		scoreManager.GetComponent<ScoreManager>().LoadScore();
+		//scoreManager.GetComponent<ScoreManager>().LoadScore();
 	}
 	public void EndGame()
 	{
@@ -30,12 +30,12 @@ public class GameManager : MonoBehaviour
 		Destroy(obstaclesManager);
 
 		//Salva a pontuação atual
-		scoreManager.GetComponent<ScoreManager>().SaveScore();
+		//scoreManager.GetComponent<ScoreManager>().SaveScore();
 
 		//Habilita o cursor
 		Cursor.visible = true;
 
 		//Chama a tela de game Over
-		interfaceManager.GetComponent<InterfaceManager>().GameOverInterface(gameOverDelay);
+		interfaceManager.GetComponent<InterfaceManager>().GameOverInterface();
 	}
 }

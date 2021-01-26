@@ -242,7 +242,7 @@ MonoBehaviour:
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.05
   m_FallbackOnIMGUIKeyboardEvents: 0
-  m_InputActionAsset: {fileID: 0}
+  m_InputActionAsset: {fileID: -944628639613478452, guid: f545339a72d700247bab47ff108c2b5c, type: 3}
   m_NavigateAction: {fileID: 0}
   m_TabAction: {fileID: 0}
   m_SubmitAction: {fileID: 0}
@@ -491,8 +491,8 @@ MonoBehaviour:
   player: {fileID: 1647493187}
   obstaclesManager: {fileID: 433605772}
   scoreManager: {fileID: 0}
-  interfaceManager: {fileID: 0}
-  developerMode: 0
+  interfaceManager: {fileID: 1525823585}
+  developerMode: 1
   gameOverDelay: 0
   gameHasEnded: 0
 --- !u!4 &538091717
@@ -886,6 +886,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1525823585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5610906989387300930, guid: f287366ead2da5249909238cf9df3706, type: 3}
+  m_PrefabInstance: {fileID: 8981863720214626119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647493187
 GameObject:
   m_ObjectHideFlags: 0

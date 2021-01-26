@@ -32,7 +32,7 @@ public class InterfaceManager : MonoBehaviour
 		}
 		else
 		{
-			interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("DevModeDiv").style.display = DisplayStyle.None;
+			interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Div_DevMode").style.display = DisplayStyle.None;
 		}
 		ScoreInterface();
 	}
@@ -66,31 +66,30 @@ public class InterfaceManager : MonoBehaviour
 	public void DeveloperModeInterface()
 	{
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("DevModeDiv").style.display = DisplayStyle.Flex;
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Div_DevMode").style.display = DisplayStyle.Flex;
 
 		double fps = 1.0 / Time.deltaTime;
 		
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeFps").text = "Fps: " + fps.ToString("0");
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_Fps").text = "Fps: " + fps.ToString("0");
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeBuild").text = "Build: " + Application.version;
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_Build").text = "Build: " + Application.version;
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeSpeed").text = "Speed: " + player.GetComponent<PlayerMovement>().speed;
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_Speed").text = "Player_Speed: " + player.GetComponent<PlayerMovement>().speed;
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeForce").text = "Force: " + player.GetComponent<PlayerMovement>().sidewaysForce;
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_Force").text = "Lateral_Force: " + player.GetComponent<PlayerMovement>().sidewaysForce;
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModeCheckPoint").text = "CheckPoint: " + player.GetComponent<PlayerMovement>().checkpoint;
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_CheckPoint").text = "CheckPoint_Distance: " + player.GetComponent<PlayerMovement>().checkpoint;
 
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("DevModePlayerPosition").text = "PlayerPosition: " + player.transform.position.z.ToString("0");
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_DevMode_PlayerPosition").text = "Player_Position: " + player.transform.position.z.ToString("0");
 		
 	}
 	public void ScoreInterface()
 	{
 		//Exibe a posição do jogador
-		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("ScoreText").text = (player.transform.position.z / 10).ToString("0");
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Text_Score_Gameplay").text = (player.transform.position.z / 10).ToString("0");
 	}
-	public void GameOverInterface(int delay)
+	public void GameOverInterface()
 	{
-		Thread.Sleep(delay);
-		//Chama tela de game over
+		interfaceGame.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Div_GameOver").style.display = DisplayStyle.Flex;
 	}
 }
