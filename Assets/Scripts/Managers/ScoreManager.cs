@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-//using TMPro;
 public class ScoreManager : MonoBehaviour
 {
-    public Transform player;
-    //public TextMeshProUGUI scoreText;
-    //public TextMeshProUGUI scoreEndText;
-    //public TextMeshProUGUI scoreEndHighText;
-    private float score = 0f;
+    public GameObject gameManager;
+    public GameObject player;
+    [HideInInspector]
+    public float score = 0f;
+    [HideInInspector]
     public float scoreHigh = 0f;
 
-    //Garante que so vai ter uma UIManager em cada cena, e se não tiver, então cria uma
+    //Garante que so vai ter uma ScoreManager em cada cena, e se não tiver, então cria uma
     public static ScoreManager instance;
     void Awake()
     {
@@ -28,14 +27,10 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         //Atualiza o placar com a posição atual do jogador no eixo Y / 10.
-        if (GameObject.Find("GameManager").GetComponent<GameManager>().gameHasEnded == false)
+        if (gameManager.GetComponent<GameManager>().gameHasEnded == false)
 		{
-            score = player.position.z / 10;
-            //scoreText.text = score.ToString("0");
+            score = player.transform.position.z / 10;
         }
-        //Atualiza a pontuação na tela de game over
-        //scoreEndText.text = score.ToString("0");
-        //scoreEndHighText.text = scoreHigh.ToString("0");
 
         //Se a pontuação atual for maior que a maior pontuação registrada, então a pontuação atual é registrada como a maior.
         if (score > scoreHigh)

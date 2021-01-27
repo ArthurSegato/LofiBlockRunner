@@ -194,6 +194,33 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Interface"",
+            ""id"": ""d9ef2d0c-f90e-4ba7-bbaf-b0830b3ab065"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""e512beb1-6a2a-416c-a180-d319a9ff4fb1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9a6ed76d-1c92-4d6f-9c90-82f0bbdcf98c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -201,6 +228,9 @@ public class @InputManager : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        // Interface
+        m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
+        m_Interface_Click = m_Interface.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -279,8 +309,45 @@ public class @InputManager : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Interface
+    private readonly InputActionMap m_Interface;
+    private IInterfaceActions m_InterfaceActionsCallbackInterface;
+    private readonly InputAction m_Interface_Click;
+    public struct InterfaceActions
+    {
+        private @InputManager m_Wrapper;
+        public InterfaceActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_Interface_Click;
+        public InputActionMap Get() { return m_Wrapper.m_Interface; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InterfaceActions set) { return set.Get(); }
+        public void SetCallbacks(IInterfaceActions instance)
+        {
+            if (m_Wrapper.m_InterfaceActionsCallbackInterface != null)
+            {
+                @Click.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
+            }
+            m_Wrapper.m_InterfaceActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
+            }
+        }
+    }
+    public InterfaceActions @Interface => new InterfaceActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IInterfaceActions
+    {
+        void OnClick(InputAction.CallbackContext context);
     }
 }
