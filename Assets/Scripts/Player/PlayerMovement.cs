@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
 
-    //private InputManager inputManager;
+    private InputSystem inputSystem;
     public Rigidbody playerRigidbody;
     public float speed = 0f;
     public float speedBoost = 0f;
@@ -15,17 +16,17 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Awake()
 	{
-        //inputManager = new InputManager();
+        inputSystem = new InputSystem();
         checkpoint = checkpointDistance;
 
     }
 	private void OnEnable()
 	{
-        //inputManager.Enable();
+        inputSystem.Enable();
 	}
 	private void OnDisable()
 	{
-        //inputManager.Disable();
+        inputSystem.Disable();
 	}
 	void FixedUpdate()
     {
@@ -47,16 +48,14 @@ public class PlayerMovement : MonoBehaviour
         //Checa se as teclas foram pressionadas, se forem, então adiciona a força no personagem.
         else
 		{
-            /*
-            if (inputManager.Player.Move.ReadValue<float>() > 0)
+            if (inputSystem.Player.Movement.ReadValue<float>() > 0)
             {
                 playerRigidbody.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
-            if (inputManager.Player.Move.ReadValue<float>() < 0)
+            if (inputSystem.Player.Movement.ReadValue<float>() < 0)
             {
                 playerRigidbody.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             }
-           */
         }
         
         // Adiciona x de velocidade extra no jogador a cada y metros, o mesmo para o movimento lateral

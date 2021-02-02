@@ -2,12 +2,12 @@
 
 public class ObstacleDestroyer : MonoBehaviour
 {
-    //Distroi o objeto ao parar de tocar no chão (só para não lagar o editor)
+	//Distroi o objeto ao parar de tocar no chão
 	private void OnCollisionExit(Collision collision)
 	{
-        if(collision.collider.CompareTag("Ground"))
+		if (collision.collider.CompareTag("Ground"))
 		{
-            Destroy(gameObject);
-        }
-    }
+			Destroy(gameObject);
+		}
+	}
 }

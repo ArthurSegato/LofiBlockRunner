@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour
 		//Cursor.visible = true;
 
 		//Chama a tela de game Over
-		interfaceManager.GetComponent<InterfaceManager>().GameOverInterface();
+		interfaceManager.GetComponent<InterfaceManagerGame>().GameOverInterface();
 	}
 }

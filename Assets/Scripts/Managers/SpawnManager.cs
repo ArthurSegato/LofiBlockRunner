@@ -5,8 +5,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     public float startDelay = 1.0f;
     public float spawnInterval = 1.0F;
-    public float spawnX = 0f;
-    public int lastObstacleIndex = 0;
+    private float spawnX = 0f;
+    private int lastObstacleIndex = 0;
 
     //Inicia o processo de spawnar os obstáculos em um dado tempo
     void Start()
