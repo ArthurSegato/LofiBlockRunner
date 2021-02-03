@@ -1,10 +1,19 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SettingsInterface : MonoBehaviour
 {
-    public void SetQuality (int qualityIndex)
+	public AudioMixer audioMixer;
+    public void SetVolume(float volume)
 	{
-		Debug.Log(QualitySettings.GetQualityLevel());
+		audioMixer.SetFloat("volumeMixer", volume * -30f);
+	}
+	public void SetQuality(int qualityIndex)
+	{
 		QualitySettings.SetQualityLevel(qualityIndex);
+	}
+	public void SetLanguage(int languageIndex)
+	{
+		Debug.Log(languageIndex);
 	}
 }

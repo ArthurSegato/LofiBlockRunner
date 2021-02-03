@@ -44,13 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720b8a3ef2c2f284e89d6079ece84d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
-  - name: MenuClick
-    clip: {fileID: 8300000, guid: 8747a00be7e6a03479f6961ed65c63d5, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   soundtracks:
   - {fileID: 8300000, guid: 5a6cb09d0be57074690fdfd7fedc2e6f, type: 3}
   - {fileID: 8300000, guid: e483fafedb7d50c4688b9b4f66f06f71, type: 3}
@@ -64,7 +57,7 @@ AudioSource:
   m_GameObject: {fileID: 115626543480928536}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a17d6424e925f3f449c4bc064fa2f69b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
