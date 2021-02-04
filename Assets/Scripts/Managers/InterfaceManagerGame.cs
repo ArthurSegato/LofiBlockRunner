@@ -21,22 +21,7 @@ public class InterfaceManagerGame : MonoBehaviour
 	public TextMeshProUGUI textGameOverScore;
 	public TextMeshProUGUI textGameOverHighScore;
 
-	//Garante que so vai ter uma InterfaceManager em cada cena, e se não tiver, então cria uma
-	public static InterfaceManagerGame instance;
-	void Awake()
-	{
-		if (instance == null)
-		{
-			instance = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
-		DontDestroyOnLoad(gameObject);
-	}
-	private void Update()
+	void Update()
 	{
 		if (gameManager.GetComponent<GameManager>().developerMode)
 		{

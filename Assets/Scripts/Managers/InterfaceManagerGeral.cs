@@ -3,21 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class InterfaceManagerGeral : MonoBehaviour
 {
-	//Garante que so vai ter uma InterfaceManager em cada cena, e se não tiver, então cria uma
-	public static InterfaceManagerGeral instance;
-	void Awake()
-	{
-		if (instance == null)
-		{
-			instance = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
-		DontDestroyOnLoad(gameObject);
-	}
 	public void OpenHome()
 	{
 		SceneManager.LoadScene(0);
