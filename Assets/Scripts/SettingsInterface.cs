@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class SettingsInterface : MonoBehaviour
 {
@@ -14,6 +16,6 @@ public class SettingsInterface : MonoBehaviour
 	}
 	public void SetLanguage(int languageIndex)
 	{
-		Debug.Log(languageIndex);
+		LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageIndex];
 	}
 }

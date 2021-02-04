@@ -3,11 +3,8 @@
 public class ObstacleDestroyer : MonoBehaviour
 {
 	//Distroi o objeto ao parar de tocar no chão
-	private void OnCollisionExit(Collision collision)
+	private void OnBecameInvisible()
 	{
-		if (collision.collider.CompareTag("Ground"))
-		{
-			Destroy(gameObject);
-		}
+		Destroy(gameObject);
 	}
 }

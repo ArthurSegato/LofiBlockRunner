@@ -29,7 +29,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Teclado"",
+                    ""name"": ""WASD"",
                     ""id"": ""ebb313b8-fed9-4bae-b6a9-895fcb56626b"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -54,6 +54,39 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""92fd16a1-491e-4aac-8468-8a4250bfa597"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Setas"",
+                    ""id"": ""22e993ee-e238-4d2c-bd05-fc7bcb9a99df"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e4bc5e91-1e36-4772-a69a-6dfe55cd567c"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""54ce057b-894f-43f9-9430-4412d928e637"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
