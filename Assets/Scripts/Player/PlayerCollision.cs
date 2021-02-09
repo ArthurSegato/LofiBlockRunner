@@ -23,16 +23,21 @@ public class PlayerCollision : MonoBehaviour
 		{
 			mainCamera.GetComponent<CameraShakeController>().StartShake();
 
-			ChangeModel();
+			BrakePlayer();
 
 			audioSource.Play();
 
 			gameManager.GetComponent<GameManager>().EndGame();
 		}
 	}
-	public void ChangeModel()
+	public void BrakePlayer()
 	{
 		playerOriginal.SetActive(false);
 		playerCracked.SetActive(true);
+	}
+	public void FixPlayer()
+	{
+		playerCracked.SetActive(false);
+		playerOriginal.SetActive(true);
 	}
 }

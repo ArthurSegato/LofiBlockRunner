@@ -2,9 +2,9 @@
 
 public class ObstacleDestroyer : MonoBehaviour
 {
-	//Distroi o objeto ao parar de tocar no chão
+	//Destroi o objeto ao parar de tocar no chão
 	private void OnBecameInvisible()
 	{
-		Destroy(gameObject);
+		Destroy(this.gameObject);
 	}
 }

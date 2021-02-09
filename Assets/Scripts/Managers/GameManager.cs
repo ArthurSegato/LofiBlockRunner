@@ -9,15 +9,17 @@ public class GameManager : MonoBehaviour
 	
 	public bool developerMode = false;
 	public int gameOverDelay = 0;
-	
+
+	private Vector3 playerPosition;
+
 	[HideInInspector]
 	public bool gameHasEnded = false;
 
 	// Desliga o cursor
 	private void Start()
 	{
-		//Cursor.visible = false;
 		scoreManager.GetComponent<ScoreManager>().LoadScore();
+		playerPosition = player.transform.position;
 	}
 	public void EndGame()
 	{
@@ -27,15 +29,25 @@ public class GameManager : MonoBehaviour
 		player.GetComponent<PlayerMovement>().enabled = false;
 
 		//Manda a criação de obstáculos pra casa do caralho.
-		Destroy(obstaclesManager);
+		obstaclesManager.SetActive(false);
 
 		//Salva a pontuação atual
 		scoreManager.GetComponent<ScoreManager>().SaveScore();
 
 		//Habilita o cursor
-		//Cursor.visible = true;
+		Cursor.visible = true;
 
 		//Chama a tela de game Over
-		interfaceManager.GetComponent<InterfaceManagerGame>().GameOverInterface();
+		interfaceManager.GetComponent<InterfaceManager>().GameOverInterface();
+	}
+	public void ResetPlayer()
+	{
+		player.GetComponent<PlayerCollision>().FixPlayer();
+		player.transform.position = playerPosition;
+		player.GetComponent<PlayerMovement>().enabled = true;
+	}
+	public void StartGame()
+	{
+		Cursor.visible = false;
 	}
 }
