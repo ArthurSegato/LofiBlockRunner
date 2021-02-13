@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3435104365288820651}
   - component: {fileID: 2449925162193296294}
   - component: {fileID: 1873644734464512841}
-  - component: {fileID: 6856575253923421492}
   m_Layer: 0
   m_Name: 2
   m_TagString: Obstacle
@@ -113,18 +112,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &6856575253923421492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213772636889686021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644437e40108be34b88202053b0588ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1828738875736088071
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828738875736088068}
-  - component: {fileID: 6909461700321079473}
   m_Layer: 0
   m_Name: Obstacle2
   m_TagString: Untagged
@@ -161,18 +147,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6909461700321079473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828738875736088071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644437e40108be34b88202053b0588ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1828738877727314851
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +160,6 @@ GameObject:
   - component: {fileID: 1828738877727314860}
   - component: {fileID: 1828738877727314863}
   - component: {fileID: 1828738877727314862}
-  - component: {fileID: 1828738877727314849}
   m_Layer: 0
   m_Name: 1
   m_TagString: Obstacle
@@ -286,18 +259,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1828738877727314849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828738877727314851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644437e40108be34b88202053b0588ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2518750106135228285
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +272,6 @@ GameObject:
   - component: {fileID: 6194641653510601807}
   - component: {fileID: 106580847106208166}
   - component: {fileID: 5832828646251951253}
-  - component: {fileID: 6019806157887865624}
   m_Layer: 0
   m_Name: 5
   m_TagString: Obstacle
@@ -411,18 +371,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &6019806157887865624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518750106135228285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644437e40108be34b88202053b0588ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3913219842070545856
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +384,6 @@ GameObject:
   - component: {fileID: 5167444263773478141}
   - component: {fileID: 5559002609559482607}
   - component: {fileID: 6672102439150473291}
-  - component: {fileID: 1084083423397473639}
   m_Layer: 0
   m_Name: 4
   m_TagString: Obstacle
@@ -536,18 +483,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1084083423397473639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913219842070545856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644437e40108be34b88202053b0588ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4568844471004546280
 GameObject:
   m_ObjectHideFlags: 0

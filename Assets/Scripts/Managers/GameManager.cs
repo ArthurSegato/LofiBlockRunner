@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class GameManager : MonoBehaviour
 {
 	public GameObject player;
@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 	public GameObject interfaceManager;
 	
 	public bool developerMode = false;
-	public int gameOverDelay = 0;
 
 	private Vector3 playerPosition;
 
@@ -40,14 +39,15 @@ public class GameManager : MonoBehaviour
 		//Chama a tela de game Over
 		interfaceManager.GetComponent<InterfaceManager>().GameOverInterface();
 	}
-	public void ResetPlayer()
+	public IEnumerator ResetPlayer()
 	{
+		yield return new WaitForSeconds(1.5f);
 		player.GetComponent<PlayerCollision>().FixPlayer();
 		player.transform.position = playerPosition;
-		player.GetComponent<PlayerMovement>().enabled = true;
 	}
 	public void StartGame()
 	{
+		player.GetComponent<PlayerMovement>().enabled = true;
 		Cursor.visible = false;
 	}
 }

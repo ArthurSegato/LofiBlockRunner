@@ -3,6 +3,7 @@ public class ScoreManager : MonoBehaviour
 {
     public GameObject gameManager;
     public GameObject player;
+    public GameObject interfaceManager;
     [HideInInspector]
     public float score = 0f;
     [HideInInspector]
@@ -29,5 +30,5 @@ public class ScoreManager : MonoBehaviour
 	{
         PlayerData data = SaveSystem.LoadScore();
         scoreHigh = data.scoreHighSaved;
-	}
+    }
 }

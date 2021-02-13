@@ -1,10 +1,13 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using DG.Tweening;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Localization.Settings;
+using System.Collections;
 
 public class InterfaceManager : MonoBehaviour
 {
+	public float interfaceFadeDelay;
 	public GameObject player;
 	public GameObject gameManager;
 	public GameObject scoreManager;
@@ -20,19 +23,23 @@ public class InterfaceManager : MonoBehaviour
 	//Score Interface
 	public TextMeshProUGUI textScore;
 	//Geral Interface
-	public GameObject interfaceGeral;
+	public CanvasGroup interfaceGeral;
 	//GameOver Interface
-	public GameObject interfaceGameOver;
+	public CanvasGroup interfaceGameOver;
 	public TextMeshProUGUI textGameOverScore;
 	public TextMeshProUGUI textGameOverHighScore;
 	//About Interface
-	public GameObject interfaceAbout;
+	public CanvasGroup interfaceAbout;
 	//Settings Interface
-	public GameObject interfaceSettings;
+	public CanvasGroup interfaceSettings;
 	public AudioMixer audioMixer;
+	[HideInInspector]
+	public int languageIndex = 0;
+	[HideInInspector]
+	public float volumeLevel = 0f;
 	//Home Interface
-	public GameObject interfaceHome;
-
+	public CanvasGroup interfaceHome;
+	
 	void Update()
 	{
 		if (gameManager.GetComponent<GameManager>().developerMode)
@@ -74,8 +81,10 @@ public class InterfaceManager : MonoBehaviour
 	}
 	public void GameOverInterface()
 	{
-		interfaceGeral.SetActive(true);
-		interfaceGameOver.SetActive(true);
+		StartCoroutine(OpenInterface(interfaceGeral));
+		StartCoroutine(OpenInterface(interfaceGameOver));
+
+		StartCoroutine(gameManager.GetComponent<GameManager>().ResetPlayer());
 
 		string score = scoreManager.GetComponent<ScoreManager>().score.ToString("0");
 		string highScore = scoreManager.GetComponent<ScoreManager>().scoreHigh.ToString("0");
@@ -85,30 +94,29 @@ public class InterfaceManager : MonoBehaviour
 	}
 	public void StartGame()
 	{
+		StartCoroutine(CloseInterface(interfaceHome));
+		StartCoroutine(CloseInterface(interfaceGeral));
 		gameManager.GetComponent<GameManager>().StartGame();
-		gameManager.GetComponent<GameManager>().ResetPlayer();
-		interfaceGeral.SetActive(false);
-		interfaceHome.SetActive(false);
 		player.SetActive(true);
 		obstacleManager.SetActive(true);
 	}
 	public void OpenSetting()
 	{
-		interfaceHome.SetActive(false);
-		interfaceSettings.SetActive(true);
+		StartCoroutine(CloseInterface(interfaceHome));
+		StartCoroutine(OpenInterface(interfaceSettings));
 	}
 	public void OpenAbout()
 	{
-		interfaceHome.SetActive(false);
-		interfaceAbout.SetActive(true);
+		StartCoroutine(CloseInterface(interfaceHome));
+		StartCoroutine(OpenInterface(interfaceAbout));
 	}
 	public void ExitGame()
 	{
 		Application.Quit();
 	}
-	public void SetVolume(float volume)
+	public void SetVolume(float volumeLevel)
 	{
-		audioMixer.SetFloat("volumeMixer", volume * -30f);
+		audioMixer.SetFloat("volumeMixer", volumeLevel * -30f);
 	}
 	public void SetQuality(int qualityIndex)
 	{
@@ -120,10 +128,11 @@ public class InterfaceManager : MonoBehaviour
 	}
 	public void BackHome()
 	{
-		interfaceSettings.SetActive(false);
-		interfaceAbout.SetActive(false);
-		interfaceGameOver.SetActive(false);
-		interfaceHome.SetActive(true);
+		StartCoroutine(CloseInterface(interfaceAbout));
+		StartCoroutine(CloseInterface(interfaceSettings));
+		StartCoroutine(CloseInterface(interfaceGameOver));
+		StartCoroutine(OpenInterface(interfaceGeral));
+		StartCoroutine(OpenInterface(interfaceHome));
 	}
 	public void OpenGithub()
 	{
@@ -147,10 +156,24 @@ public class InterfaceManager : MonoBehaviour
 	}
 	public void PlayAgain()
 	{
+		StartCoroutine(CloseInterface(interfaceGeral));
+		StartCoroutine(CloseInterface(interfaceGameOver));
 		gameManager.GetComponent<GameManager>().StartGame();
-		gameManager.GetComponent<GameManager>().ResetPlayer();
-		interfaceGameOver.SetActive(false);
-		interfaceGeral.SetActive(false);
 		obstacleManager.SetActive(true);
+	}
+	IEnumerator OpenInterface(CanvasGroup targetInterface)
+	{
+		yield return new WaitForSeconds(interfaceFadeDelay / 2);
+		targetInterface.DOFade(1f, interfaceFadeDelay);
+		targetInterface.blocksRaycasts = true;
+		targetInterface.interactable = true;
+		
+	}
+	IEnumerator CloseInterface(CanvasGroup targetInterface)
+	{
+		targetInterface.DOFade(0f, interfaceFadeDelay);
+		targetInterface.blocksRaycasts = false;
+		targetInterface.interactable = false;
+		yield return new WaitForSeconds(interfaceFadeDelay / 2);
 	}
 }
