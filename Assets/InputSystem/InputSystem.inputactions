@@ -187,9 +187,33 @@
             "id": "f253133c-2668-405e-a0cb-a475f42f6a2d",
             "actions": [
                 {
-                    "name": "Click",
+                    "name": "Left Click",
                     "type": "Button",
                     "id": "cd5ab93c-9d1c-4b4f-84bd-a64bbc2726f5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Point",
+                    "type": "Button",
+                    "id": "d12b1e36-53a2-4f48-972a-ee73b7697f5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Click",
+                    "type": "Button",
+                    "id": "d289773d-3e56-48d1-8e8c-e61c6ce1c42c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "605563a2-a65e-4aa9-b108-49781bbab5b5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -201,6 +225,39 @@
                     "id": "b225979d-d8d8-4b4d-9b87-2c64d6dd045d",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0820da29-cc10-4a70-bdd9-e2e274e8b7e7",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "223b4264-2f1b-4e4f-9a19-4720bd803430",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad8a4303-b027-46dc-9201-d3559a2ec6e9",
+                    "path": "<Mouse>/press",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Click",

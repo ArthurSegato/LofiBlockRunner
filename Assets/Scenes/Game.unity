@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63cbfd49e8b9b54981f3a7176028e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target_Tag: Player
   offSet: {x: 0, y: 0, z: 220}
 --- !u!1 &636909827
 GameObject:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5bfd7b455776148a31489f83c4b908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target_Tag: Player
   smoothSpeed: 0.125
   offset: {x: 0, y: 1, z: -2}
 --- !u!114 &963194230

@@ -8,12 +8,21 @@ public class InterfaceManager : MonoBehaviour
 {
 	public int interfaceFadeDelay;
 	//About Interface
-	public CanvasGroup UI_About;
+	public GameObject UI_About;
 	//Settings Interface
-	public CanvasGroup UI_Settings;
+	public GameObject UI_Settings;
 	//Home Interface
-	public CanvasGroup UI_Home;
-	
+	public GameObject UI_Home;
+	private GameObject player;
+
+	void Start(){
+		player = GameObject.FindWithTag("Player");
+	}
+	public void Open_UI_Home()
+	{
+		StartCoroutine(Close_UI(UI_About));
+		StartCoroutine(Open_UI(UI_Home));
+	}
 	public void Open_UI_Settings()
 	{
 		StartCoroutine(Close_UI(UI_Home));
@@ -23,6 +32,11 @@ public class InterfaceManager : MonoBehaviour
 	{
 		StartCoroutine(Close_UI(UI_Home));
 		StartCoroutine(Open_UI(UI_About));
+	}
+	public void Start_Game()
+	{
+		StartCoroutine(Close_UI(UI_Home));
+		player.SetActive(true);
 	}
 	public void Close_Game()
 	{
@@ -48,18 +62,15 @@ public class InterfaceManager : MonoBehaviour
 	{
 		Application.OpenURL("https://fonts.google.com/specimen/Roboto");
 	}
-	IEnumerator Open_UI(CanvasGroup targetInterface)
+	IEnumerator Open_UI(GameObject targetInterface)
 	{
+		targetInterface.SetActive(true);
 		yield return new WaitForSeconds(interfaceFadeDelay / 2);
-		targetInterface.blocksRaycasts = true;
-		targetInterface.interactable = true;
 		
 	}
-	IEnumerator Close_UI(CanvasGroup targetInterface)
+	IEnumerator Close_UI(GameObject targetInterface)
 	{
-		targetInterface.blocksRaycasts = false;
-		targetInterface.interactable = false;
-		targetInterface.enabled = false;
+		targetInterface.SetActive(false);
 		yield return new WaitForSeconds(interfaceFadeDelay / 2);
 	}
 }

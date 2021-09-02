@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &433605773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63cbfd49e8b9b54981f3a7176028e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target_Tag: Player
   offSet: {x: 0, y: 0, z: 100}
 --- !u!4 &433605774
 Transform:
@@ -367,10 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740e95dc390f0764c8cdfc6190e11b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  obstaclesManager: {fileID: 433605772}
-  scoreManager: {fileID: 1132515704}
-  interfaceManager: {fileID: 0}
   developerMode: 0
   gameHasEnded: 0
 --- !u!4 &538091717

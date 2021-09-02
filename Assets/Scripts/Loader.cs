@@ -8,6 +8,10 @@ public static class Loader
     public enum Scene
     {
         Game,
+        Loading,
+        Ui,
+        Core,
+        Player,
     }
 
     public static void Load(Scene scene)

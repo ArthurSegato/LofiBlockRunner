@@ -200,9 +200,33 @@ public class @InputSystem : IInputActionCollection, IDisposable
             ""id"": ""f253133c-2668-405e-a0cb-a475f42f6a2d"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
+                    ""name"": ""Left Click"",
                     ""type"": ""Button"",
                     ""id"": ""cd5ab93c-9d1c-4b4f-84bd-a64bbc2726f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Button"",
+                    ""id"": ""d12b1e36-53a2-4f48-972a-ee73b7697f5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""d289773d-3e56-48d1-8e8c-e61c6ce1c42c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""605563a2-a65e-4aa9-b108-49781bbab5b5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -214,6 +238,39 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""id"": ""b225979d-d8d8-4b4d-9b87-2c64d6dd045d"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0820da29-cc10-4a70-bdd9-e2e274e8b7e7"",
+                    ""path"": ""<Pointer>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""223b4264-2f1b-4e4f-9a19-4720bd803430"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad8a4303-b027-46dc-9201-d3559a2ec6e9"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Click"",
@@ -230,6 +287,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         // Interface
         m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
+        m_Interface_LeftClick = m_Interface.FindAction("Left Click", throwIfNotFound: true);
+        m_Interface_Point = m_Interface.FindAction("Point", throwIfNotFound: true);
+        m_Interface_RightClick = m_Interface.FindAction("Right Click", throwIfNotFound: true);
         m_Interface_Click = m_Interface.FindAction("Click", throwIfNotFound: true);
     }
 
@@ -313,11 +373,17 @@ public class @InputSystem : IInputActionCollection, IDisposable
     // Interface
     private readonly InputActionMap m_Interface;
     private IInterfaceActions m_InterfaceActionsCallbackInterface;
+    private readonly InputAction m_Interface_LeftClick;
+    private readonly InputAction m_Interface_Point;
+    private readonly InputAction m_Interface_RightClick;
     private readonly InputAction m_Interface_Click;
     public struct InterfaceActions
     {
         private @InputSystem m_Wrapper;
         public InterfaceActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LeftClick => m_Wrapper.m_Interface_LeftClick;
+        public InputAction @Point => m_Wrapper.m_Interface_Point;
+        public InputAction @RightClick => m_Wrapper.m_Interface_RightClick;
         public InputAction @Click => m_Wrapper.m_Interface_Click;
         public InputActionMap Get() { return m_Wrapper.m_Interface; }
         public void Enable() { Get().Enable(); }
@@ -328,6 +394,15 @@ public class @InputSystem : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_InterfaceActionsCallbackInterface != null)
             {
+                @LeftClick.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnLeftClick;
+                @LeftClick.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnLeftClick;
+                @LeftClick.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnLeftClick;
+                @Point.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnPoint;
+                @RightClick.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnRightClick;
+                @RightClick.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnRightClick;
+                @RightClick.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnRightClick;
                 @Click.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnClick;
@@ -335,6 +410,15 @@ public class @InputSystem : IInputActionCollection, IDisposable
             m_Wrapper.m_InterfaceActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @LeftClick.started += instance.OnLeftClick;
+                @LeftClick.performed += instance.OnLeftClick;
+                @LeftClick.canceled += instance.OnLeftClick;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+                @RightClick.started += instance.OnRightClick;
+                @RightClick.performed += instance.OnRightClick;
+                @RightClick.canceled += instance.OnRightClick;
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
@@ -348,6 +432,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
     }
     public interface IInterfaceActions
     {
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
     }
 }
