@@ -14,17 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public float checkpoint = 0f;
     public float border = 0f;
 
-	private void Awake()
+	void Awake()
 	{
         inputSystem = new InputSystem();
         checkpoint = checkpointDistance;
 
     }
-	private void OnEnable()
+	void OnEnable()
 	{
         inputSystem.Enable();
 	}
-	private void OnDisable()
+	void OnDisable()
 	{
         inputSystem.Disable();
 	}

@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214a230207bfec94990d73e756624dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 538091715}
   obstaclePrefabs:
   - {fileID: 9151250878728012066, guid: bdabb9fa158182a4b9f5f05a23eeb3ae, type: 3}
   - {fileID: 1828738875736088071, guid: d2f3f4e15c86bff41bda1c3fc42808e2, type: 3}
@@ -412,9 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770e1f753eff53f46817c5a3b465cc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 538091715}
-  player: {fileID: 0}
-  interfaceManager: {fileID: 0}
   score: 0
   scoreHigh: 0
 --- !u!4 &1132515706

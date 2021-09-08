@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector]
 	public bool gameHasEnded = false;
 
-	private void Start()
+	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
 		obstaclesManager = GameObject.Find("Manager_Obstacles");
@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
 		scoreManager.GetComponent<ScoreManager>().LoadScore();
 		playerPosition = player.transform.position;
+
+		player.GetComponent<PlayerMovement>().enabled = false;
+		obstaclesManager.SetActive(false);
 	}
 	public void EndGame()
 	{
@@ -57,6 +60,8 @@ public class GameManager : MonoBehaviour
 	{
 		// Habilita o script de movimento do jogador
 		player.GetComponent<PlayerMovement>().enabled = true;
+		//Habilita o script de spawn dos obstaculos
+		obstaclesManager.SetActive(true);
 		//Esconde o cursor
 		Cursor.visible = false;
 	}

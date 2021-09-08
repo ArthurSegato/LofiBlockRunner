@@ -14,9 +14,11 @@ public class InterfaceManager : MonoBehaviour
 	//Home Interface
 	public GameObject UI_Home;
 	private GameObject player;
+	private	GameObject gameManager;
 
 	void Start(){
 		player = GameObject.FindWithTag("Player");
+		gameManager = GameObject.Find("Manager_Game");
 	}
 	public void Open_UI_Home()
 	{
@@ -36,7 +38,7 @@ public class InterfaceManager : MonoBehaviour
 	public void Start_Game()
 	{
 		StartCoroutine(Close_UI(UI_Home));
-		player.SetActive(true);
+		gameManager.GetComponent<GameManager>().StartGame();
 	}
 	public void Close_Game()
 	{

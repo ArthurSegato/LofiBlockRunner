@@ -11,14 +11,14 @@ public class PlayerCollision : MonoBehaviour
 	private GameObject audioManager;
 	private GameObject mainCamera;
 
-	private void Start()
+	void Start()
 	{
 		gameManager = GameObject.Find("Manager_Game");
 		audioManager = GameObject.Find("Manager_Audio");
 		mainCamera = GameObject.Find("Camera_Main");
 	}
 
-	private void OnCollisionEnter(Collision collisionInfo)
+	void OnCollisionEnter(Collision collisionInfo)
 	{
 		if (collisionInfo.collider.CompareTag("Obstacle"))
 		{
