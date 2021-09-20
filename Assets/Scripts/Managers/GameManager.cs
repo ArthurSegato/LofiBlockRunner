@@ -4,11 +4,12 @@ public class GameManager : MonoBehaviour
 {
 	public bool developerMode = false;
 
-	private GameObject player;
+	[SerializeField]
 	private GameObject obstaclesManager;
+	[SerializeField]
 	private GameObject scoreManager;
-	private GameObject interfaceManager;
-
+	private GameObject player;
+	private GameObject UIManager;
 	private Vector3 playerPosition;
 
 	[HideInInspector]
@@ -16,10 +17,8 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-		player = GameObject.FindWithTag("Player");
-		obstaclesManager = GameObject.Find("Manager_Obstacles");
-		scoreManager = GameObject.Find("Manager_Score");
-		interfaceManager = GameObject.Find("Ui_Manager");
+		player = GameObject.Find("Player");
+		UIManager = GameObject.Find("Ui_Manager");
 
 		scoreManager.GetComponent<ScoreManager>().LoadScore();
 		playerPosition = player.transform.position;
@@ -45,7 +44,10 @@ public class GameManager : MonoBehaviour
 		Cursor.visible = true;
 
 		//Chama a tela de game Over
-		//interfaceManager.GetComponent<InterfaceManager>().GameOverInterface();
+		UIManager.GetComponent<UIManager>().Open_UI_GameOver();
+
+		// Reseta o jogador
+		StartCoroutine(ResetPlayer());
 	}
 	public IEnumerator ResetPlayer()
 	{
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
 	}
 	public void StartGame()
 	{
+		gameHasEnded = false;
 		// Habilita o script de movimento do jogador
 		player.GetComponent<PlayerMovement>().enabled = true;
 		//Habilita o script de spawn dos obstaculos

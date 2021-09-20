@@ -337,6 +337,7 @@ MonoBehaviour:
   - {fileID: 3362416593804862938, guid: 3efc612f9050ad14c9d92ef326ad6b6e, type: 3}
   - {fileID: 7530670145206465818, guid: 371161e5e9c59204f8cbf2c8e26e3bc7, type: 3}
   spawnInterval: 1
+  gameManager: {fileID: 538091715}
 --- !u!1 &538091715
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerMode: 0
+  obstaclesManager: {fileID: 433605772}
+  scoreManager: {fileID: 1132515704}
   gameHasEnded: 0
 --- !u!4 &538091717
 Transform:
@@ -413,6 +416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreHigh: 0
+  score_string: 
+  gameManager: {fileID: 538091715}
 --- !u!4 &1132515706
 Transform:
   m_ObjectHideFlags: 0

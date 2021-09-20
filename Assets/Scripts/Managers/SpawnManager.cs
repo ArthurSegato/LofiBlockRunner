@@ -5,16 +5,12 @@ public class SpawnManager : MonoBehaviour
 {
 	public GameObject[] obstaclePrefabs;
 	public float spawnInterval = 0F;
-
+	[SerializeField]
 	private GameObject gameManager;
 	private float spawnX = 0f;
 	private int lastObstacleIndex = 0;
 
 	//Inicia o processo de spawnar os obstáculos em um dado tempo
-	void Start()
-	{
-		gameManager = GameObject.Find("Manager_Game");
-	}
 	void OnEnable()
 	{
 		StartCoroutine(SpawnObstacle());
