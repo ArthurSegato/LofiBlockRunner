@@ -104,7 +104,7 @@ public class UIManager : MonoBehaviour
 		QualitySettings.SetQualityLevel(UI_Settings_Quality.value, true);
 	}
 	public void MostrarIntro(){
-		var videoPlayer = GetComponent<Camera>().AddComponent<UnityEngine.Video.VideoPlayer>();
+		//var videoPlayer = GetComponent<Camera>().AddComponent<UnityEngine.Video.VideoPlayer>();
 	}
 	IEnumerator Open_UI(GameObject targetInterface)
 	{
