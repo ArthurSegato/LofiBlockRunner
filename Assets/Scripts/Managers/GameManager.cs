@@ -8,18 +8,24 @@ public class GameManager : MonoBehaviour
 	private GameObject obstaclesManager;
 	[SerializeField]
 	private GameObject scoreManager;
+	[SerializeField]
 	private GameObject player;
-	private GameObject UIManager;
+	[SerializeField]
+	private GameObject Manager_UI;
+	[SerializeField]
 	private Vector3 playerPosition;
 
 	[HideInInspector]
 	public bool gameHasEnded = false;
-
+	void Awake()
+	{
+		// Inicia a UI
+		StartCoroutine(Manager_UI.GetComponent<UIManager>().StartUI());
+		// Chama a splash screen
+		StartCoroutine(Manager_UI.GetComponent<UIManager>().ShowSplash());
+	}
 	void Start()
 	{
-		player = GameObject.Find("Player");
-		UIManager = GameObject.Find("Ui_Manager");
-
 		scoreManager.GetComponent<ScoreManager>().LoadScore();
 		playerPosition = player.transform.position;
 
@@ -44,7 +50,7 @@ public class GameManager : MonoBehaviour
 		Cursor.visible = true;
 
 		//Chama a tela de game Over
-		UIManager.GetComponent<UIManager>().Open_UI_GameOver();
+		//Manager_UI.GetComponent<Manager_UI>().Open_UI_GameOver();
 
 		// Reseta o jogador
 		StartCoroutine(ResetPlayer());

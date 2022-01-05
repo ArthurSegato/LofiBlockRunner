@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
 		{
             score = player.transform.position.z / 10;
         }else{
-            UIManager.GetComponent<UIManager>().SetScore(score, scoreHigh);
+            //UIManager.GetComponent<UIManager>().SetScore(score, scoreHigh);
         }
         // Se a pontuação atual for maior que a maior pontuação registrada, então a pontuação atual é registrada como a maior.
         if (score > scoreHigh)
