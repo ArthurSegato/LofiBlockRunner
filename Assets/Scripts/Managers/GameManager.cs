@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		// Inicia a UI
-		StartCoroutine(Manager_UI.GetComponent<UIManager>().StartUI());
+		Manager_UI.GetComponent<UIManager>().StartUI();
 		// Chama a splash screen
 		StartCoroutine(Manager_UI.GetComponent<UIManager>().ShowSplash());
 	}

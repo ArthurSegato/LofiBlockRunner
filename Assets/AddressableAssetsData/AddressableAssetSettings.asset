@@ -16,14 +16,26 @@ MonoBehaviour:
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 0
+  m_CCDEnabled: 0
   m_maxConcurrentWebRequests: 500
   m_ContiguousBundles: 0
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
+  m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 2
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: becaffa5b2d090f4c9f4d0577be25c98, type: 2}
@@ -31,6 +43,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b709574d653dd44e96e030ce25d64d3, type: 2}
   - {fileID: 11400000, guid: 3535ed5a61872284c993f7788a0af133, type: 2}
   - {fileID: 11400000, guid: 8c0c70a0c9722a14c863e15b7baab6b9, type: 2}
+  - {fileID: 11400000, guid: 0db9bf1d317ec334d8fbf1b2f04ac386, type: 2}
+  - {fileID: 11400000, guid: 297f437ff20a4bb4e815fb53fc680a77, type: 2}
+  - {fileID: 11400000, guid: 7a685a17509a4234594adf8290a9a706, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1

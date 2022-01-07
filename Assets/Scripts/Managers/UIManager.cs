@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
 	[Header("Global Settings")]
 	[SerializeField]
+	private GameObject uiBackground;
+	[SerializeField]
 	private float delayToStart = 0f;
 	[SerializeField]
 	private float animationDuration = 0f;
@@ -16,9 +18,9 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private float delayBetweenAnimation = 0f;
 	[SerializeField]
-	private GameObject uiBackground;
-	[SerializeField]
+	private float delayBetweenUI = 0f;
 	[Header("SplashScreen Settings")]
+	[SerializeField]
 	private GameObject uiSplashScreen;
 	[SerializeField]
 	private GameObject splashScreen_Logo;
@@ -34,6 +36,9 @@ public class UIManager : MonoBehaviour
 	[Header("About Settings")]
 	[SerializeField]
 	private GameObject uiAbout;
+	[Header("Settings Settings")]
+	[SerializeField]
+	private GameObject uiSettings;
 
 	private TMPro.TMP_Text UI_Score_Text;
 	[SerializeField]
@@ -44,16 +49,18 @@ public class UIManager : MonoBehaviour
 	private TMPro.TMP_Dropdown UI_Settings_Quality;
 
 	// Seta todas as Interfacess para o estado padrão
-	public IEnumerator StartUI()
+	public void StartUI()
 	{
 		uiBackground.SetActive(true);
 		uiSplashScreen.SetActive(false);
 		uiMainMenu.SetActive(false);
 		uiAbout.SetActive(false);
+		uiSettings.SetActive(false);
 		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiAbout.GetComponent<CanvasGroup>(), 0f, 0f);
-		yield return null;
+		LeanTween.alphaCanvas(uiSettings.GetComponent<CanvasGroup>(), 0f, 0f);
+		return;
 	}
 
 	public IEnumerator ShowSplash()
@@ -70,24 +77,30 @@ public class UIManager : MonoBehaviour
 		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(delayToStart);
 		yield return new WaitForSeconds(delayToChangeUI);
 		uiSplashScreen.SetActive(false);
-		StartCoroutine(OpenUI(uiMainMenu));
+		uiMainMenu.SetActive(true);
+		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart / 2);
 		yield return null;
 	}
-	public void OpenAbout(){
-		StartCoroutine(CloseUI(uiMainMenu));
-		StartCoroutine(OpenUI(uiAbout));
+	public void ChangeMenuToAbout(){
+		StartCoroutine(ChangeUI(uiMainMenu,uiAbout));
 	}
-	// Abre a UI que foi passada
-	private IEnumerator OpenUI(GameObject targetUI){
-		yield return new WaitForSeconds(delayToChangeUI);
-		targetUI.SetActive(true);
-		LeanTween.alphaCanvas(targetUI.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart / 2);
+	public void ChangeAboutToMenu(){
+		StartCoroutine(ChangeUI(uiAbout,uiMainMenu));
 	}
-	// Fecha a UI que foi passada
-	private IEnumerator CloseUI(GameObject targetUI){
-		LeanTween.alphaCanvas(targetUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(delayToStart);
+	public void ChangeMenuToSettings(){
+		StartCoroutine(ChangeUI(uiMainMenu,uiSettings));
+	}
+	public void ChangeSettingsToMenu(){
+		StartCoroutine(ChangeUI(uiSettings,uiMainMenu));
+	}
+	// Fecha a primeira UI e abre a segunda
+	private IEnumerator ChangeUI(GameObject fromUI, GameObject toUI){
+		LeanTween.alphaCanvas(fromUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
 		yield return new WaitForSeconds(delayToStart);
-		targetUI.SetActive(true);
+		fromUI.SetActive(false);
+		yield return new WaitForSeconds(delayBetweenUI);
+		toUI.SetActive(true);
+		LeanTween.alphaCanvas(toUI.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(0f);
 		yield return null;
 	}
 	// Fecha o jogo
@@ -95,37 +108,23 @@ public class UIManager : MonoBehaviour
 	{
 		Application.Quit();
 	}
-	public void OpenWebsitesAbout(int option){
-		if (option == 0){
-			StartCoroutine(OpenWebsite());
-		}
-		else if (option == 1){
-			StartCoroutine(OpenStreamBeats());
-		}
-		else if (option == 2){
-			StartCoroutine(OpenGoogleFonts());
-		}
-		else{
-			return;
-		}
-	}
 	// Abre o meu site
-	private IEnumerator OpenWebsite()
+	public void OpenWebsite()
 	{
 		Application.OpenURL("https://arthursegato.com");
-		yield return null;
+		return;
 	}
 	// Abre o site do streamBeats
-	private IEnumerator OpenStreamBeats()
+	public void OpenStreamBeats()
 	{
 		Application.OpenURL("https://www.streambeats.com");
-		yield return null;
+		return;
 	}
 	// Abre o google fonts
-	private IEnumerator OpenGoogleFonts()
+	public void OpenGoogleFonts()
 	{
 		Application.OpenURL("https://fonts.google.com/specimen/Roboto");
-		yield return null;
+		return;
 	}
 	/*
 	void Update()
