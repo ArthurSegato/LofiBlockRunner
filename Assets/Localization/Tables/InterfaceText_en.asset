@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3692750102528
-    m_Localized: GRAPHICS
+    m_Localized: QUALITY
     m_Metadata:
       m_Items: []
   - m_Id: 4115946987520
@@ -52,10 +52,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6223341477888
     m_Localized: 'MADE BY:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 6259035004928
-    m_Localized: 'YOU CAN FIND ME AT:'
     m_Metadata:
       m_Items: []
   - m_Id: 6293512183808
@@ -75,11 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9030882746368
-    m_Localized: PLAY AGAIN?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9061287256064
-    m_Localized: HOME
+    m_Localized: PLAY AGAIN
     m_Metadata:
       m_Items: []
   references:

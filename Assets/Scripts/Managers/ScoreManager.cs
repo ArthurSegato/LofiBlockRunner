@@ -12,14 +12,10 @@ public class ScoreManager : MonoBehaviour
     public string score_string;
     [SerializeField]
     private GameObject gameManager;
-    private GameObject UIManager;
+    [SerializeField]
+    private GameObject uiManager;
+    [SerializeField]
     private GameObject player;
-
-    void Start()
-    {
-        UIManager = GameObject.Find("Ui_Manager");
-        player = GameObject.Find("Player");
-    }
     
     void Update()
     {
@@ -27,8 +23,10 @@ public class ScoreManager : MonoBehaviour
         if (gameManager.GetComponent<GameManager>().gameHasEnded == false)
 		{
             score = player.transform.position.z / 10;
+            uiManager.GetComponent<UIManager>().SetScore(score);
+
         }else{
-            //UIManager.GetComponent<UIManager>().SetScore(score, scoreHigh);
+            uiManager.GetComponent<UIManager>().SetGameOverScore(score, scoreHigh);
         }
         // Se a pontuação atual for maior que a maior pontuação registrada, então a pontuação atual é registrada como a maior.
         if (score > scoreHigh)

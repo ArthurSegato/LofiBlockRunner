@@ -32,7 +32,7 @@ public class PlayerCollision : MonoBehaviour
 			audioSource.Play();
 
 			// Finaliza o jogo
-			gameManager.GetComponent<GameManager>().EndGame();
+			StartCoroutine(gameManager.GetComponent<GameManager>().EndGame());
 		}
 	}
 	// Troca o modelo do jogador inteiro para o quebrado

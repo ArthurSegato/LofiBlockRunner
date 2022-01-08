@@ -54,10 +54,6 @@ MonoBehaviour:
     m_Localized: 'CRIADO POR:'
     m_Metadata:
       m_Items: []
-  - m_Id: 6259035004928
-    m_Localized: 'VOCE PODE ME ENCONTRAR EM:'
-    m_Metadata:
-      m_Items: []
   - m_Id: 6293512183808
     m_Localized: 'TRILHA SONORA POR:'
     m_Metadata:
@@ -66,12 +62,8 @@ MonoBehaviour:
     m_Localized: 'FONTES POR:'
     m_Metadata:
       m_Items: []
-  - m_Id: 9061287256064
-    m_Localized: INICIO
-    m_Metadata:
-      m_Items: []
   - m_Id: 9030882746368
-    m_Localized: JOGAR NOVAMENTE?
+    m_Localized: JOGAR NOVAMENTE
     m_Metadata:
       m_Items: []
   - m_Id: 8949769101312

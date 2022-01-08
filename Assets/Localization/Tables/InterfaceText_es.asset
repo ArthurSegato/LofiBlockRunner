@@ -54,10 +54,6 @@ MonoBehaviour:
     m_Localized: 'CRIADO POR:'
     m_Metadata:
       m_Items: []
-  - m_Id: 6259035004928
-    m_Localized: 'PUEDES ENCONTRARME EN:'
-    m_Metadata:
-      m_Items: []
   - m_Id: 6293512183808
     m_Localized: BANDA SONORA POR
     m_Metadata:
@@ -75,11 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9030882746368
-    m_Localized: JUGAR NUEVAMENTE?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9061287256064
-    m_Localized: COMIENZO
+    m_Localized: JUGAR NUEVAMENTE
     m_Metadata:
       m_Items: []
   references:

@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
 	private GameObject Manager_UI;
 	[SerializeField]
 	private Vector3 playerPosition;
-
+	[SerializeField]
+	private float delayToResetPlayer = 0f;
+	[SerializeField]
+	private float delayToGameOverScreen = 0f;
 	[HideInInspector]
 	public bool gameHasEnded = false;
 	void Awake()
@@ -26,13 +29,15 @@ public class GameManager : MonoBehaviour
 	}
 	void Start()
 	{
+		// Carrega a pontuação
 		scoreManager.GetComponent<ScoreManager>().LoadScore();
 		playerPosition = player.transform.position;
-
+		// Congela o jogador
 		player.GetComponent<PlayerMovement>().enabled = false;
+		// Congela os obstáculos
 		obstaclesManager.SetActive(false);
 	}
-	public void EndGame()
+	public IEnumerator EndGame()
 	{
 		// Encerra o jogo
 		gameHasEnded = true;
@@ -49,20 +54,26 @@ public class GameManager : MonoBehaviour
 		// Habilita o cursor
 		Cursor.visible = true;
 
+		// Espera um tempo antes de chamar a tela de GameOver
+		yield return new WaitForSeconds(delayToGameOverScreen);
+		
 		//Chama a tela de game Over
-		//Manager_UI.GetComponent<Manager_UI>().Open_UI_GameOver();
+		Manager_UI.GetComponent<UIManager>().ChangeGameToGameOver();
 
 		// Reseta o jogador
 		StartCoroutine(ResetPlayer());
+		yield return null;
 	}
 	public IEnumerator ResetPlayer()
 	{
 		// Espera alguns segundos antes de resetar a posição do jogador
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(delayToResetPlayer);
 		// Concerta o jogador
 		player.GetComponent<PlayerCollision>().FixPlayer();
 		// Reseta a posição do jogador
 		player.transform.position = playerPosition;
+		// Reseta o modelo quebrado do jogador
+		player.GetComponent<ResetPlayer>().ResetPlayerModel();
 	}
 	public void StartGame()
 	{

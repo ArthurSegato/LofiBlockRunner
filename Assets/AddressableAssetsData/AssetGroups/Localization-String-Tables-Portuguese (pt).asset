@@ -15,10 +15,10 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Portuguese (pt)
   m_Data:
     m_SerializedData: []
-  m_GUID: dffd384367e56664cb6a3a0775edc3a2
+  m_GUID: 3dd9df80ddf4a9e42b6f809a7c4205f9
   m_SerializeEntries:
   - m_GUID: ce8d25ab25107d4429cbaef4b47a690b
-    m_Address: InterfaceText_pt
+    m_Address: UIText_pt
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt

@@ -16,70 +16,102 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private float maxOpacity = 0f;
 	[SerializeField]
-	private float delayBetweenAnimation = 0f;
-	[SerializeField]
 	private float delayBetweenUI = 0f;
 	[Header("SplashScreen Settings")]
 	[SerializeField]
 	private GameObject uiSplashScreen;
 	[SerializeField]
-	private GameObject splashScreen_Logo;
+	private GameObject splashScreenLogo;
+	[SerializeField]
+	private float splashDelayToStart = 0f;
+	[SerializeField]
+	private float splashDelayToHidde = 0f;
+	[SerializeField]
+	private float splashAnimationDuration = 0f;
+	[SerializeField]
+	private float splashMaxOpacity = 0f;
+	[SerializeField]
+	private float splashMinOpacity = 0f;
+	[SerializeField]
+	private float splashDelayToDeactivate = 0f;
 	[SerializeField]
 	private float logoScale = 0f;
 	[SerializeField]
-	private float delayToChangeUI = 0f;
-	[SerializeField]
-	private float scaleDuration = 0f;
+	private float splashScaleDuration = 0f;
 	[Header("MainMenu Settings")]
 	[SerializeField]
 	private GameObject uiMainMenu;
 	[Header("About Settings")]
 	[SerializeField]
 	private GameObject uiAbout;
-	[Header("Settings Settings")]
+	[Header("Settings")]
 	[SerializeField]
 	private GameObject uiSettings;
-
-	private TMPro.TMP_Text UI_Score_Text;
+	[Header("Game Settings")]
 	[SerializeField]
-	private TMPro.TMP_Text UI_GameOver_Score;
+	private GameObject uiGame;
 	[SerializeField]
-	private TMPro.TMP_Text UI_GameOver_HighScore;
+	private TMP_Text uiGameScore;
+	[Header("GameOver Settings")]
 	[SerializeField]
-	private TMPro.TMP_Dropdown UI_Settings_Quality;
+	private GameObject uiGameOver;
+	[SerializeField]
+	private TMP_Text uiGameOverScore;
+	[SerializeField]
+	private TMP_Text uiGameOverScoreHigh;
 
 	// Seta todas as Interfacess para o estado padrão
 	public void StartUI()
 	{
+		// Desativa as UI
 		uiBackground.SetActive(true);
 		uiSplashScreen.SetActive(false);
 		uiMainMenu.SetActive(false);
 		uiAbout.SetActive(false);
 		uiSettings.SetActive(false);
+		uiGame.SetActive(false);
+		uiGameOver.SetActive(false);
+		// Faz o conteudo das UI's transparente
 		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiAbout.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiSettings.GetComponent<CanvasGroup>(), 0f, 0f);
-		return;
+		LeanTween.alphaCanvas(uiGame.GetComponent<CanvasGroup>(), 0f, 0f);
+		LeanTween.alphaCanvas(uiGameOver.GetComponent<CanvasGroup>(), 0f, 0f);
 	}
-
+	// Mostra a SplashScreen
 	public IEnumerator ShowSplash()
 	{
 		// Torna a UI Ativa
 		uiSplashScreen.SetActive(true);
 		// Mostra a logo
-		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart);
+		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), splashMaxOpacity, splashAnimationDuration).setDelay(splashDelayToStart);
 		// Aumenta a logo
-		LeanTween.scale(splashScreen_Logo.GetComponent<RectTransform>(), splashScreen_Logo.GetComponent<RectTransform>().localScale * logoScale, scaleDuration).setEase(LeanTweenType.easeOutCirc).setDelay(delayToStart);
-		// Espera alguns segundos
-		yield return new WaitForSeconds(delayBetweenAnimation);
+		LeanTween.scale(splashScreenLogo.GetComponent<RectTransform>(), splashScreenLogo.GetComponent<RectTransform>().localScale * logoScale, splashScaleDuration).setEase(LeanTweenType.easeOutCirc).setDelay(splashDelayToStart);
 		// Esconde a logo
-		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(delayToStart);
-		yield return new WaitForSeconds(delayToChangeUI);
+		LeanTween.alphaCanvas(uiSplashScreen.GetComponent<CanvasGroup>(), splashMinOpacity, splashAnimationDuration).setDelay(splashDelayToStart + splashDelayToHidde);
+		// Espera mais alguns Segundos
+		yield return new WaitForSeconds((splashDelayToStart + splashDelayToHidde) + splashDelayToDeactivate);
+		// Desativa a UI
 		uiSplashScreen.SetActive(false);
-		uiMainMenu.SetActive(true);
-		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart / 2);
+		StartCoroutine(ShowMainMenu());
 		yield return null;
+	}
+	public IEnumerator ShowMainMenu(){
+		// Torna a UI do menu Ativa
+		uiMainMenu.SetActive(true);
+		// Mostra a UI do Menu
+		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart);
+		yield return null;
+	}
+	public void StartGame(){
+		StartCoroutine(ChangeUI(uiMainMenu,uiGame));
+	}
+	public void PlayAgain(){
+		StartCoroutine(ChangeUI(uiGameOver,uiGame));
+	}
+	public void ChangeGameOverToMenu(){
+		StartCoroutine(ChangeUI(uiGameOver,uiMainMenu));
 	}
 	public void ChangeMenuToAbout(){
 		StartCoroutine(ChangeUI(uiMainMenu,uiAbout));
@@ -93,14 +125,35 @@ public class UIManager : MonoBehaviour
 	public void ChangeSettingsToMenu(){
 		StartCoroutine(ChangeUI(uiSettings,uiMainMenu));
 	}
-	// Fecha a primeira UI e abre a segunda
+	public void ChangeGameToGameOver(){
+		StartCoroutine(ChangeUI(uiGame,uiGameOver));
+	}
+	// Troca as UI
 	private IEnumerator ChangeUI(GameObject fromUI, GameObject toUI){
+		// Esconde a primeira UI
 		LeanTween.alphaCanvas(fromUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
+		// Espera um tempo
 		yield return new WaitForSeconds(delayToStart);
+		// Desliga a UI que foi escondida
 		fromUI.SetActive(false);
+		// Caso a UI em questão seja a de GameOver
+		if(toUI == uiGameOver){
+			// Esconde o fundo
+			LeanTween.alphaCanvas(uiBackground.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(0f);
+		}
+		// Espera um tempo
 		yield return new WaitForSeconds(delayBetweenUI);
+		// Liga a UI que vai ser mostrada
 		toUI.SetActive(true);
+		// Mostra a UI
 		LeanTween.alphaCanvas(toUI.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(0f);
+		// Se a ui a ser motrada é a da gameplay
+		if(toUI == uiGame){
+			// Espera um tempo
+			yield return new WaitForSeconds(delayBetweenUI / 2);
+			// Esconde o fundo
+			LeanTween.alphaCanvas(uiBackground.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
+		}
 		yield return null;
 	}
 	// Fecha o jogo
@@ -126,48 +179,22 @@ public class UIManager : MonoBehaviour
 		Application.OpenURL("https://fonts.google.com/specimen/Roboto");
 		return;
 	}
-	/*
-	void Update()
+	// Define a qualidade gráfica
+	public void SetQuality(int value)
 	{
-		UI_Score_Text.text = scoreManager.GetComponent<ScoreManager>().GetScore();
+		QualitySettings.SetQualityLevel(value, true);
 	}
-	public void Open_UI_Home()
+	// Define o idioma
+	public void SetLanguage(int value)
 	{
-		StartCoroutine(Close_UI(UI_About));
-		StartCoroutine(Close_UI(UI_Settings));
-		StartCoroutine(Close_UI(UI_GameOver));
-		StartCoroutine(Open_UI(UI_Home));
+		LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[value];
 	}
-	public void Open_UI_Settings()
-	{
-		StartCoroutine(Close_UI(UI_Home));
-		StartCoroutine(Open_UI(UI_Settings));
+	// Mostra a pontuação na tela
+	public void SetScore(float score){
+		uiGameScore.text = score.ToString("0");
 	}
-	public void Open_UI_About()
-	{
-		StartCoroutine(Close_UI(UI_Home));
-		StartCoroutine(Open_UI(UI_About));
+	public void SetGameOverScore(float score, float scoreHigh){
+		uiGameOverScore.text = score.ToString("0");
+		uiGameOverScoreHigh.text = scoreHigh.ToString("0");
 	}
-	public void Open_UI_GameOver()
-	{
-		StartCoroutine(Close_UI(UI_Score));
-		StartCoroutine(Open_UI(UI_GameOver));
-	}
-	public void Start_Game()
-	{
-		StartCoroutine(Close_UI(UI_Home));
-		StartCoroutine(Close_UI(UI_GameOver));
-		StartCoroutine(Open_UI(UI_Score));
-		gameManager.GetComponent<GameManager>().StartGame();
-	}
-	public void SetScore(float score, float highscore)
-	{
-		UI_GameOver_Score.text = score.ToString("0");
-		UI_GameOver_HighScore.text = highscore.ToString("0");
-	}
-	public void Set_Quality()
-	{
-		QualitySettings.SetQualityLevel(UI_Settings_Quality.value, true);
-	}
-	*/
 }

@@ -12,71 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: InterfaceText Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: InterfaceText
+  m_TableCollectionName: UIText
   m_TableCollectionNameGuidString: 5cf5819e2a64f99488dc5b8690c1ef5e
   m_Entries:
   - m_Id: 45345595392
-    m_Key: Text_Start
+    m_Key: MainMenu_Start_Button
     m_Metadata:
       m_Items: []
   - m_Id: 1331679911936
-    m_Key: Text_Settings
+    m_Key: MainMenu_Settings_Button
     m_Metadata:
       m_Items: []
   - m_Id: 1368786919424
-    m_Key: Text_About
+    m_Key: MainMenu_About_Button
     m_Metadata:
       m_Items: []
   - m_Id: 1398457425920
-    m_Key: Text_Exit
+    m_Key: MainMenu_Exit_Button
     m_Metadata:
       m_Items: []
   - m_Id: 3637460787200
-    m_Key: Text_Language
+    m_Key: Settings_Language
     m_Metadata:
       m_Items: []
   - m_Id: 3692750102528
-    m_Key: Text_Graphics
+    m_Key: Settings_Graphics
     m_Metadata:
       m_Items: []
   - m_Id: 4115946987520
-    m_Key: Text_Volume
+    m_Key: Settings_Volume
     m_Metadata:
       m_Items: []
   - m_Id: 5359633620992
-    m_Key: Text_Back
+    m_Key: Button_Back
     m_Metadata:
       m_Items: []
   - m_Id: 6223341477888
-    m_Key: Text_MadeBy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 6259035004928
-    m_Key: Text_FindMe
+    m_Key: About_MadeBy
     m_Metadata:
       m_Items: []
   - m_Id: 6293512183808
-    m_Key: Text_Soundtrack
+    m_Key: About_Soundtrack
     m_Metadata:
       m_Items: []
   - m_Id: 6372608368640
-    m_Key: Text_Fonts
+    m_Key: About_Fonts
     m_Metadata:
       m_Items: []
   - m_Id: 8949769101312
-    m_Key: Text_CurrentScore
+    m_Key: GameOver_CurrentScore
     m_Metadata:
       m_Items: []
   - m_Id: 8992072851456
-    m_Key: Text_HighScore
+    m_Key: GameOver_HighScore
     m_Metadata:
       m_Items: []
   - m_Id: 9030882746368
-    m_Key: Text_PlayAgain
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9061287256064
-    m_Key: Text_Home
+    m_Key: GameOver_PlayAgain
     m_Metadata:
       m_Items: []
   m_Metadata:
