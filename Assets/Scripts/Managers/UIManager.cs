@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Localization.Settings;
 using System.Collections;
@@ -17,6 +18,14 @@ public class UIManager : MonoBehaviour
 	private float maxOpacity = 0f;
 	[SerializeField]
 	private float delayBetweenUI = 0f;
+	[SerializeField]
+	private Button[] buttonsToDisable;
+	[SerializeField]
+	private TMP_Text[] linksToDisable;
+	[SerializeField]
+	private TMP_Dropdown[] dropDownToDisable;
+	[SerializeField]
+	private Slider sliderToDisable;
 	[Header("SplashScreen Settings")]
 	[SerializeField]
 	private GameObject uiSplashScreen;
@@ -78,6 +87,8 @@ public class UIManager : MonoBehaviour
 		LeanTween.alphaCanvas(uiSettings.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiGame.GetComponent<CanvasGroup>(), 0f, 0f);
 		LeanTween.alphaCanvas(uiGameOver.GetComponent<CanvasGroup>(), 0f, 0f);
+		// Desativa os botões
+		SetInteractablesDisable(false);
 	}
 	// Mostra a SplashScreen
 	public IEnumerator ShowSplash()
@@ -102,6 +113,10 @@ public class UIManager : MonoBehaviour
 		uiMainMenu.SetActive(true);
 		// Mostra a UI do Menu
 		LeanTween.alphaCanvas(uiMainMenu.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(delayToStart);
+		// Espera a UI aparecer completamente
+		yield return new WaitForSeconds(delayToStart + animationDuration);
+		// Ativa os botões
+		SetInteractablesDisable(true);
 		yield return null;
 	}
 	public void StartGame(){
@@ -130,12 +145,22 @@ public class UIManager : MonoBehaviour
 	}
 	// Troca as UI
 	private IEnumerator ChangeUI(GameObject fromUI, GameObject toUI){
+		// Desativa os botões
+		SetInteractablesDisable(false);
 		// Esconde a primeira UI
-		LeanTween.alphaCanvas(fromUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
+		if(fromUI == uiGame){
+			LeanTween.alphaCanvas(fromUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(delayToStart + animationDuration + 2);
+		}else{
+			LeanTween.alphaCanvas(fromUI.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
+		}
 		// Espera um tempo
 		yield return new WaitForSeconds(delayToStart);
 		// Desliga a UI que foi escondida
-		fromUI.SetActive(false);
+		if(fromUI == uiGame){
+			StartCoroutine(DesligaUiGame(fromUI));
+		}else{
+			fromUI.SetActive(false);
+		}
 		// Caso a UI em questão seja a de GameOver
 		if(toUI == uiGameOver){
 			// Esconde o fundo
@@ -146,7 +171,7 @@ public class UIManager : MonoBehaviour
 		// Liga a UI que vai ser mostrada
 		toUI.SetActive(true);
 		// Mostra a UI
-		LeanTween.alphaCanvas(toUI.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(0f);
+		LeanTween.alphaCanvas(toUI.GetComponent<CanvasGroup>(), maxOpacity, animationDuration).setDelay(0.2f);
 		// Se a ui a ser motrada é a da gameplay
 		if(toUI == uiGame){
 			// Espera um tempo
@@ -154,7 +179,15 @@ public class UIManager : MonoBehaviour
 			// Esconde o fundo
 			LeanTween.alphaCanvas(uiBackground.GetComponent<CanvasGroup>(), 0f, animationDuration).setDelay(0f);
 		}
+		// Espera a UI aparecer completamente
+		yield return new WaitForSeconds(animationDuration);
+		// Ativa os botões
+		SetInteractablesDisable(true);
 		yield return null;
+	}
+	private IEnumerator DesligaUiGame(GameObject fromUI){
+		yield return new WaitForSeconds(delayToStart + animationDuration + 2);
+		fromUI.SetActive(false);
 	}
 	// Fecha o jogo
 	public void CloseGame()
@@ -196,5 +229,14 @@ public class UIManager : MonoBehaviour
 	public void SetGameOverScore(float score, float scoreHigh){
 		uiGameOverScore.text = score.ToString("0");
 		uiGameOverScoreHigh.text = scoreHigh.ToString("0");
+	}
+	public void SetInteractablesDisable(bool state){
+		for(int i = 0; i < buttonsToDisable.Length; i++){
+			buttonsToDisable[i].enabled = state;
+		}
+		for(int i = 0; i < dropDownToDisable.Length; i++){
+			dropDownToDisable[i].enabled = state;
+		}
+		sliderToDisable.enabled = state;
 	}
 }

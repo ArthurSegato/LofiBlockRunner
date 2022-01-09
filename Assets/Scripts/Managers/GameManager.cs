@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 	private float delayToGameOverScreen = 0f;
 	[HideInInspector]
 	public bool gameHasEnded = false;
+	[HideInInspector]
+	public bool clearObstacles = false;
 	void Awake()
 	{
 		// Inicia a UI
@@ -74,6 +76,8 @@ public class GameManager : MonoBehaviour
 		player.transform.position = playerPosition;
 		// Reseta o modelo quebrado do jogador
 		player.GetComponent<ResetPlayer>().ResetPlayerModel();
+		// Limpa os obstáculos
+		clearObstacles = true;
 	}
 	public void StartGame()
 	{

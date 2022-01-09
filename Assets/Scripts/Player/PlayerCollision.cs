@@ -7,16 +7,12 @@ public class PlayerCollision : MonoBehaviour
 	public GameObject playerCracked;
 	public AudioSource audioSource;
 
+	[SerializeField]
 	private GameObject gameManager;
+	[SerializeField]
 	private GameObject audioManager;
+	[SerializeField]
 	private GameObject mainCamera;
-
-	void Start()
-	{
-		gameManager = GameObject.Find("Manager_Game");
-		audioManager = GameObject.Find("Manager_Audio");
-		mainCamera = GameObject.Find("Camera_Main");
-	}
 
 	void OnCollisionEnter(Collision collisionInfo)
 	{
