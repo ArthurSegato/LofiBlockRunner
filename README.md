@@ -7,11 +7,11 @@ LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtub
 ## Table of Contents:
 
 - [LofiBlockRunner Final Technical Report](#lofiblockrunner-final-technical-report)
-  * [Summary:](#summary)
-  * [Table of Contents:](#table-of-contents)
-  * [Technical Information:](#technical-information)
-  * [Overview:](#overview)
-  * [Features:](#features)
+  * [Summary](#summary)
+  * [Table of Contents](#table-of-contents)
+  * [Technical Information](#technical-information)
+  * [Overview](#overview)
+  * [Features](#features)
     + [Localization:](#localization)
     + [Save System:](#save-system)
     + [Accessibility:](#accessibility)
