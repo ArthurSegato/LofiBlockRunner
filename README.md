@@ -11,6 +11,7 @@ LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtub
 ## Technical Information:
 
 | Author          | Arthur Segato                                        |
+| --------------- | ---------------------------------------------------- |
 | Published       | 04/02/2021                                           |
 | Status          | Prototype                                            |
 | Platforms       | Windows, macOS, Linux                                |
