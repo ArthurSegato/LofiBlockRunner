@@ -36,4 +36,4 @@ The player's highest score is saved to keep track of their progress.
 
 ### Accessibility:
 
-The game is very accessible, containing a high-contrast and colour-blind friendly UI.
+The game contain a high-contrast and colour-blind friendly UI.
