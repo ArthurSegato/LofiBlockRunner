@@ -7,23 +7,7 @@ public class AudioManager : MonoBehaviour
 	public AudioSource audioSource;
 	private AudioClip lastTrack;
 	private AudioClip newTrack;
-
-	public static AudioManager instance;
-
-	void Awake()
-	{
-		if (instance == null)
-		{
-			instance = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
-
-		DontDestroyOnLoad(gameObject);
-	}
+	
 	private AudioClip GetRandomMusic()
 	{
 		newTrack = soundtracks[Random.Range(0, soundtracks.Length)];
