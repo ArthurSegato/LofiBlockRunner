@@ -89,4 +89,5 @@ public class GameManager : MonoBehaviour
 		//Esconde o cursor
 		Cursor.visible = false;
 	}
+	
 }

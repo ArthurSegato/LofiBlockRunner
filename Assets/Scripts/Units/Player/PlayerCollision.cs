@@ -18,9 +18,6 @@ public class PlayerCollision : MonoBehaviour
 	{
 		if (collisionInfo.collider.CompareTag("Obstacle"))
 		{
-			// Balança a camera
-			mainCamera.GetComponent<CameraShakeController>().StartShake();
-
 			// Quebra o jogador
 			BrakePlayer();
 
