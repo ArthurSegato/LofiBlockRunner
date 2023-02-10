@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/LofiBlockRunner/UI/Game/Style_Game.uss?fileID=7433441132597879392&amp;guid=c4da2611aea001e40b091cd5c9ee7334&amp;type=3#Style_Game" />
+    <ui:VisualElement name="body" class="body">
+        <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="score" class="score" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>

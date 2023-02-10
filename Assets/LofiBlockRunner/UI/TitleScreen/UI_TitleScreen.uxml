@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/LofiBlockRunner/UI/MainMenu/Style_MainMenu.uss?fileID=7433441132597879392&amp;guid=35afe3ad78b06a649a1cf9a68baa11b9&amp;type=3#Style_MainMenu" />
+    <ui:VisualElement name="body" class="body">
+        <ui:VisualElement name="title-container" class="title-container">
+            <ui:Label tabindex="-1" text="LofiBlockRunner" display-tooltip-when-elided="true" name="title" class="title" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="buttons-container" class="buttons-container">
+            <ui:Button text="START" display-tooltip-when-elided="true" name="button-start" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                <ui:VisualElement name="button-underline" class="button-underline" />
+            </ui:Button>
+            <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="button-options" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                <ui:VisualElement name="button-underline" class="button-underline" />
+            </ui:Button>
+            <ui:Button text="CREDITS" display-tooltip-when-elided="true" name="button-credits" enable-rich-text="false" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                <ui:VisualElement name="button-underline" class="button-underline" />
+            </ui:Button>
+            <ui:Button text="EXIT" display-tooltip-when-elided="true" name="button-exit" enable-rich-text="true" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                <ui:VisualElement name="button-underline" class="button-underline" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

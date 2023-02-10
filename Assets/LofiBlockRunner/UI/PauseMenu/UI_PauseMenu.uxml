@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/LofiBlockRunner/UI/EndScreen/Style_EndScreen.uss?fileID=7433441132597879392&amp;guid=0aaeb92921e06804881e446d24abc344&amp;type=3#Style_EndScreen" />
+    <ui:VisualElement name="body" class="body">
+        <ui:VisualElement name="title-container" class="title-container" style="width: 100%;">
+            <ui:Label tabindex="-1" text="Paused" display-tooltip-when-elided="true" name="title" class="title" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="credits-container" class="credits-container">
+            <ui:VisualElement name="button-container" class="button-container">
+                <ui:Label tabindex="-1" text="CURRENT SCORE:" display-tooltip-when-elided="true" name="current-score" class="role" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="current-score-value" class="score-value" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="button-container" class="button-container">
+                <ui:Label tabindex="-1" text="HIGH SCORE:" display-tooltip-when-elided="true" name="high-score" class="role" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="high-score-value" class="score-value" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="button-container" class="button-container">
+                <ui:Button text="RESUME" display-tooltip-when-elided="true" name="button-resume" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                    <ui:VisualElement name="button-underline" class="button-underline" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:VisualElement name="button-container" class="button-container">
+                <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="button-options" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                    <ui:VisualElement name="button-underline" class="button-underline" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:VisualElement name="button-container" class="button-container">
+                <ui:Button text="QUIT" display-tooltip-when-elided="true" name="button-quit" class="button" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);">
+                    <ui:VisualElement name="button-underline" class="button-underline" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

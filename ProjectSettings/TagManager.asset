@@ -5,20 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - Ground
-  - uiButton
-  - CollisionWall
+  - ObstacleBarrier
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PosProcessamento
+  - 
   - Water
   - UI
   - 
   - 
-  - 
-  - 
+  - Camera
+  - Lateral Barrier
   - 
   - 
   - 

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/LofiBlockRunner/UI/Tutorial/Style_Tutorial.uss?fileID=7433441132597879392&amp;guid=f8b2f186324b45940975adf410a8c192&amp;type=3#Style_Tutorial" />
+    <ui:VisualElement name="body" class="body">
+        <ui:Label tabindex="-1" text="Use the keys (A or ←) and (D or →) to move the player." display-tooltip-when-elided="true" name="tutorial" class="tutorial" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label tabindex="-1" text="Press (ESC or Select) to pause and (Enter or Start) to close this tutorial." display-tooltip-when-elided="true" name="tutorial" class="tutorial" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label tabindex="-1" text="Dodge the obstacles to survive." display-tooltip-when-elided="true" name="tutorial" class="tutorial" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label tabindex="-1" text="Good luck!" display-tooltip-when-elided="true" name="tutorial" class="tutorial" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+    </ui:VisualElement>
+</ui:UXML>
