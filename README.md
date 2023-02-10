@@ -2,7 +2,7 @@
 
 ## Summary:
 
-LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtube.com/watch?v=j48LtUkZRjU&list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6) tutorial on youtube, and was submitted as an entry for a selection process, the process offered a vacancy to be part of the VR lab at UVV.
+LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtube.com/watch?v=j48LtUkZRjU&list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6) tutorial on youtube, and was submitted as an entry for a selection process, the process offered a vacancy to be part of the VR lab at UVV, although I didn't get the position, I continued developing the game and later releasing it on Itch.io (V1.0.0), from time to time I come back and redo this project to compare my evolution in game development, the game is currently on version 2.0.0.
 
 ## Table of Contents:
 
@@ -23,7 +23,7 @@ LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtub
 | Published       | 04/02/2021                                           |
 | Status          | Prototype                                            |
 | Platforms       | Windows, macOS, Linux                                |
-| Made with       | Unity, Adobe Photoshop, Sublime Text                 |
+| Made with       | Unity, Adobe Photoshop, Visual Sudio 2022                 |
 | License         | MIT License                                          |
 | Average session | A few minutes                                        |
 | Languages       | English, Spanish; Latin America, Portuguese (Brazil) |
