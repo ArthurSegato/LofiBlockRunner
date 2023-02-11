@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 400060919738143633}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &8929578110503364062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 7545458701264168048}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &5326193420711280614
 MonoBehaviour:
   m_ObjectHideFlags: 0

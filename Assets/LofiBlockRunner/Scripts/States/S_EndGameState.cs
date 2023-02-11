@@ -1,3 +1,4 @@
+using UnityEngine;
 public class S_EndGameState : S_GameBaseState
 {
     public override void EnterState(S_GameStateManager gameState)

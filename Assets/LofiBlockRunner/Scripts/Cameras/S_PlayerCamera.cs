@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>  
+/// Class responsible for managing the player camera
+/// </summary>
 public class S_PlayerCamera : MonoBehaviour
 {
     private void Awake()

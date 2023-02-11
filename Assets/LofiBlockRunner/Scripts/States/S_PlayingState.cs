@@ -9,5 +9,6 @@ public class S_PlayingState : S_GameBaseState
     {
         S_Actions.EnableObstacleManager();
         S_Actions.DisableGameUI();
+        S_Actions.DisablePlayerCollision();
     }
 }

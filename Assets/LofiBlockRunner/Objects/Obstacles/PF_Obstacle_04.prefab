@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 5119006684524749047}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &955897485659324417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 4483504687730322001}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &2528265478191930436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 5535044486210099671}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &3603110739578811817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 793796887100474758}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &2965070628408489142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 8945355461648212486}
   _speed: 1000
+  _shrinkSpeed: 0.25
 --- !u!114 &67734055005990911
 MonoBehaviour:
   m_ObjectHideFlags: 0

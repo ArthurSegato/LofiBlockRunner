@@ -16,6 +16,7 @@ public class S_ObstacleSpawner : MonoBehaviour
     #endregion
 
     #region Functions
+    // Register functions to the Actions
     private void Awake()
     {
         S_Actions.EnableObstacleManager += EnableSelf;
@@ -47,6 +48,7 @@ public class S_ObstacleSpawner : MonoBehaviour
         return position;
     }
 
+    // Functions for enabling and disabling this manager
     private void EnableSelf() => this.gameObject.SetActive(true);
 
     private void DisableSelf() => this.gameObject.SetActive(false);

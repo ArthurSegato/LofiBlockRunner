@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>  
+/// Class responsible for managing the credits ui camera
+/// </summary>
 public class S_CreditsCamera : MonoBehaviour
 {
     private void Awake()

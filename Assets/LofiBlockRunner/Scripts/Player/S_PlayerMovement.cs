@@ -19,16 +19,13 @@ public class S_PlayerMovement : MonoBehaviour
     private Vector3 _movement;
     #endregion
 
-    #region Listeners
+    #region Functions
     private void Awake()
     {
         S_Actions.DisablePlayerInput += DisablePlayerMovement;
         S_Actions.EnablePlayerInput += EnablePlayerMovement;
     }
 
-    #endregion
-
-    #region Functions
     // Receives input from player
     private void OnMove(InputValue value) => _movement = value.Get<Vector2>();
 

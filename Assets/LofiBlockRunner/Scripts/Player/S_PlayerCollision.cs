@@ -1,23 +1,29 @@
 using UnityEngine;
 
+/// <summary>  
+/// Class responsible for the handling player collision.
+/// </summary>
 public class S_PlayerCollision : MonoBehaviour
 {
-    #region Listeners
+    #region Variables
+    private bool _isColliderEnabled = true;
+    #endregion
+
+    #region Functions
     private void Awake()
     {
         S_Actions.DisablePlayerCollision += DisablePlayerCollision;
         S_Actions.EnablePlayerCollision += EnablePlayerCollision;
     }
-
-    #endregion
-
+    // Check collision and flag
     void OnCollisionEnter(Collision collided)
     {
-        if (collided.transform.CompareTag("Obstacle")) S_Actions.EndGame();
+        if (collided.transform.CompareTag("Obstacle") || _isColliderEnabled) S_Actions.EndGame();
     }
 
-    // Stop the player movement after death
-    private void DisablePlayerCollision() => this.enabled = false;
+    // Disable colision detection, so the fragments of the broken mesh dont trigger collisions
+    private void DisablePlayerCollision() => _isColliderEnabled = false;
 
-    private void EnablePlayerCollision() => this.enabled = true;
+    private void EnablePlayerCollision() => _isColliderEnabled = true;
+    #endregion
 }

@@ -1,20 +1,28 @@
 using Cinemachine;
 using UnityEngine;
 
+/// <summary>  
+/// Class responsible for deactivating all cameras, and then enable a chosen one
+/// </summary>
 public class S_CameraManager : MonoBehaviour
 {
-    [SerializeField]
-    private CinemachineVirtualCamera[] _cameraList;
-    [SerializeField]
-    private CinemachineVirtualCamera _startCamera;
+    #region Variables
+    [Header("Cameras Settings")]
+    [Tooltip("List with all cameras.")]
+    [SerializeField] private CinemachineVirtualCamera[] _cameraList;
+    [Tooltip("Camera wich shoud be keep active.")]
+    [SerializeField] private CinemachineVirtualCamera _startCamera;
+    #endregion
 
-    private void Awake()
+    #region Functions
+    private void Start()
     {
-        // Disable all UI Documents except the first one
+        // Deactivate all cameras except the start one
         foreach (CinemachineVirtualCamera camera in _cameraList)
         {
             if (camera == _startCamera) camera.gameObject.SetActive(true);
             else camera.gameObject.SetActive(false);
         }
     }
+    #endregion
 }
