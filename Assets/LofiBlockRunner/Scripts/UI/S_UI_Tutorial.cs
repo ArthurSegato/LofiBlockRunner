@@ -1,15 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
+/// <summary>  
+/// Class handling the tutorial UI
+/// </summary>
 public class S_UI_Tutorial : MonoBehaviour
 {
     private void Awake()
     {
-        S_Actions.EnableTutorialUI += EnableUI;
-        S_Actions.DisableTutorialUI += DisableUI;
+        S_Actions.EnableTutorialUI += () => this.gameObject.SetActive(true);
+        S_Actions.DisableTutorialUI += () => this.gameObject.SetActive(false);
     }
-    private void EnableUI() => this.gameObject.SetActive(true);
-
-    private void DisableUI() => this.gameObject.SetActive(false);
 }

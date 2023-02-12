@@ -7,11 +7,7 @@ public class S_CreditsCamera : MonoBehaviour
 {
     private void Awake()
     {
-        S_Actions.EnableCreditsCamera += EnableCamera;
-        S_Actions.DisableCreditsCamera += DisableCamera;
+        S_Actions.EnableCreditsCamera += () => this.gameObject.SetActive(true);
+        S_Actions.DisableCreditsCamera += () => this.gameObject.SetActive(false);
     }
-
-    private void EnableCamera() => this.gameObject.SetActive(true);
-
-    private void DisableCamera() => this.gameObject.SetActive(false);
 }

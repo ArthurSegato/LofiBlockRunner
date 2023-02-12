@@ -14,6 +14,6 @@ public class S_CameraRotation : MonoBehaviour
     #endregion
 
     #region Functions
-    void Update() => transform.eulerAngles += new Vector3(0, _direction * _speed * Time.deltaTime, 0);
+    void Update() => transform.eulerAngles += new Vector3(0, _direction * _speed * Time.unscaledDeltaTime, 0);
     #endregion
 }

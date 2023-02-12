@@ -16,18 +16,25 @@ public class S_ObstacleSpawner : MonoBehaviour
     #endregion
 
     #region Functions
-    // Register functions to the Actions
     private void Awake()
     {
-        S_Actions.EnableObstacleManager += EnableSelf;
-        S_Actions.DisableObstacleManager += DisableSelf;
+        S_Actions.EnableObstacleManager += () => this.gameObject.SetActive(true);
+        S_Actions.DisableObstacleManager += () => this.gameObject.SetActive(false);
     }
 
     // Starts obstacle spawning when becomes enabled
-    void OnEnable() => InvokeRepeating(nameof(SpawnObstacles), _spawnDelay, _spawnInterval);
+    void OnEnable()
+    {
+        InvokeRepeating(nameof(SpawnObstacles), _spawnDelay, _spawnInterval);
+        S_Actions.ObstacleSpawnedFlag();
+    }
 
     // Stop obstacle spawning when becomes disabled
-    private void OnDisable() => CancelInvoke(nameof(SpawnObstacles));
+    private void OnDisable()
+    {
+        CancelInvoke(nameof(SpawnObstacles));
+        S_Actions.ObstacleDestroyedFlag();
+    }
 
     // Spawn random obstacle
     private void SpawnObstacles() {
@@ -47,10 +54,5 @@ public class S_ObstacleSpawner : MonoBehaviour
         
         return position;
     }
-
-    // Functions for enabling and disabling this manager
-    private void EnableSelf() => this.gameObject.SetActive(true);
-
-    private void DisableSelf() => this.gameObject.SetActive(false);
     #endregion
 }

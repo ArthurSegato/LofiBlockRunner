@@ -1,22 +1,25 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>  
+/// Class handling the game UI
+/// </summary>
 public class S_UI_Game : MonoBehaviour
 {
     private void Awake()
     {
-        S_Actions.EnableGameUI += EnableUI;
-        S_Actions.DisableGameUI += DisableUI;
+        S_Actions.EnableGameUI += () => this.gameObject.SetActive(true);
+        S_Actions.DisableGameUI += () => this.gameObject.SetActive(false);
     }
     private void OnEnable()
     {
+        // Get the UI DOM
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
+        // Get all texts
         Label textScore = root.Q<Label>("score");
 
-        textScore.text = "Pegar esse texto do input";
+        // Change text value
+        textScore.text = "0";
     }
-    private void EnableUI() => this.gameObject.SetActive(true);
-
-    private void DisableUI() => this.gameObject.SetActive(false);
 }

@@ -6,40 +6,57 @@ using System;
 public static class S_Actions
 {
     #region States
-    public static Action OnPlayIntro;
+    public static Action OpenTutorial;
 
-    public static Action OnIntroFinished;
-
-    public static Action StartTutorial;
-
-    public static Action StartGame;
+    public static Action OpenGame;
 
     public static Action EndGame;
 
     public static Action PauseGame;
 
-    public static Action OpenTitleScreenMenu;
+    public static Action OpenTitleScreen;
 
-    public static Action OpenOptionsMenu;
+    public static Action OpenOptions;
 
-    public static Action OpenCreditsMenu;
+    public static Action OpenCredits;
+    #endregion
 
+    #region Obstacles
     public static Action EnableObstacleManager;
 
     public static Action DisableObstacleManager;
+
+    public static Action DestroyObstacles;
+
+    public static Action HiddeObstacles;
+
+    public static Action DisableObstacleMovement;
+
+    public static Action ObstacleSpawnedFlag;
+
+    public static Action ObstacleDestroyedFlag;
     #endregion
 
     #region Player
     public static Action ResetPlayer;
 
-    public static Action DisablePlayerInput;
+    public static Action BrakePlayer;
 
     public static Action EnablePlayerInput;
 
-    public static Action DisablePlayerCollision;
+    public static Action DisablePlayerInput;
 
     public static Action EnablePlayerCollision;
 
+    public static Action DisablePlayerCollision;
+
+    public static Action EnablePlayerPause;
+
+    public static Action DisablePlayerPause;
+
+    public static Action EnablePlayerTutorial;
+
+    public static Action DisablePlayerTutorial;
     #endregion
 
     #region Camera

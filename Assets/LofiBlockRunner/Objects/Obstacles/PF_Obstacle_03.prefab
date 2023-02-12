@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1790761705218827270}
   - component: {fileID: 531338377517615470}
   - component: {fileID: 7660580147597617751}
-  - component: {fileID: 1216479059905828693}
   - component: {fileID: 400060919738143633}
   - component: {fileID: 4180058351392264289}
   - component: {fileID: 8929578110503364062}
+  - component: {fileID: 8094217461696438460}
   m_Layer: 0
   m_Name: SM_Obstacle_Right
   m_TagString: Obstacle
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2499d5ada8ea7e4e91d5ef7eb688a91, type: 2}
+  - {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,20 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1216479059905828693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574313154728006116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4973ead558a05ca4a97d8799029b303e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: b2499d5ada8ea7e4e91d5ef7eb688a91, type: 2}
-  _color: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
 --- !u!54 &400060919738143633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 400060919738143633}
   _speed: 1000
-  _shrinkSpeed: 0.25
 --- !u!114 &8929578110503364062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1ab3eb1aaafb640b74f43f98dfa11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8094217461696438460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574313154728006116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d1323253edd604eb134c1fa401e953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}
 --- !u!1 &6577485207537535356
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,10 +220,10 @@ GameObject:
   - component: {fileID: 6660223233369755995}
   - component: {fileID: 3392294018403166983}
   - component: {fileID: 3616570852985810458}
-  - component: {fileID: 8988883542455575351}
   - component: {fileID: 7545458701264168048}
   - component: {fileID: 3380703802129659838}
   - component: {fileID: 5326193420711280614}
+  - component: {fileID: 7613398645978472805}
   m_Layer: 0
   m_Name: SM_Obstacle_Left
   m_TagString: Obstacle
@@ -276,7 +274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2499d5ada8ea7e4e91d5ef7eb688a91, type: 2}
+  - {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -319,20 +317,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8988883542455575351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944507671513943373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4973ead558a05ca4a97d8799029b303e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: b2499d5ada8ea7e4e91d5ef7eb688a91, type: 2}
-  _color: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
 --- !u!54 &7545458701264168048
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -374,7 +358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 7545458701264168048}
   _speed: 1000
-  _shrinkSpeed: 0.25
 --- !u!114 &5326193420711280614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,3 +370,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1ab3eb1aaafb640b74f43f98dfa11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7613398645978472805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944507671513943373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d1323253edd604eb134c1fa401e953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}

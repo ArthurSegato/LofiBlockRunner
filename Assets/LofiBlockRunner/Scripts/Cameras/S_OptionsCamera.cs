@@ -7,11 +7,7 @@ public class S_OptionsCamera : MonoBehaviour
 {
     private void Awake()
     {
-        S_Actions.EnableOptionsCamera += EnableCamera;
-        S_Actions.DisableOptionsCamera += DisableCamera;
+        S_Actions.EnableOptionsCamera += () => this.gameObject.SetActive(true);
+        S_Actions.DisableOptionsCamera += () => this.gameObject.SetActive(false);
     }
-
-    private void EnableCamera() => this.gameObject.SetActive(true);
-
-    private void DisableCamera() => this.gameObject.SetActive(false);
 }

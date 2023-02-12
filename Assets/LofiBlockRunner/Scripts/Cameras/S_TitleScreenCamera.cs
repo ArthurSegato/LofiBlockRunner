@@ -8,11 +8,7 @@ public class S_TitleScreenCamera : MonoBehaviour
     // Register methods to the Action
     private void Awake()
     {
-        S_Actions.EnableTitleScreenCamera += EnableCamera;
-        S_Actions.DisableTitleScreenCamera += DisableCamera;
+        S_Actions.EnableTitleScreenCamera += () => gameObject.SetActive(true);
+        S_Actions.DisableTitleScreenCamera += () => gameObject.SetActive(false);
     }
-
-    private void EnableCamera() => this.gameObject.SetActive(true);
-
-    private void DisableCamera() => this.gameObject.SetActive(false);
 }

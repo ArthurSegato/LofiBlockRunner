@@ -14,9 +14,9 @@ public class S_MeshChanger : MonoBehaviour
     #endregion
 
     #region Listeners
-    private void OnEnable()
+    private void Awake()
     {
-        S_Actions.EndGame += BrakeMesh;
+        S_Actions.BrakePlayer += BrakeMesh;
         S_Actions.ResetPlayer += FixMesh;
     }
     #endregion

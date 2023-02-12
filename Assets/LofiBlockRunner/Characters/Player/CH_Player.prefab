@@ -761,8 +761,7 @@ GameObject:
   - component: {fileID: 6637753628813825787}
   - component: {fileID: 6107656638425234532}
   - component: {fileID: 7394811430868109834}
-  - component: {fileID: 7586376503084460782}
-  - component: {fileID: 8761684042435481936}
+  - component: {fileID: 6921480884682474133}
   m_Layer: 0
   m_Name: CH_Player
   m_TagString: Player
@@ -903,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce823f0b011d9fb4f94d221a1e8bbcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7586376503084460782
+--- !u!114 &6921480884682474133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -915,21 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99e2e89fb0dfb644940576360640d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originalMesh: {fileID: 0}
-  _brokenMesh: {fileID: 0}
---- !u!114 &8761684042435481936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425582017044447424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99e2e89fb0dfb644940576360640d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _originalMesh: {fileID: 6425582017044447424}
+  _originalMesh: {fileID: 5108687536865302812}
   _brokenMesh: {fileID: 7986071748476067086}
 --- !u!1 &7986071748476067086
 GameObject:

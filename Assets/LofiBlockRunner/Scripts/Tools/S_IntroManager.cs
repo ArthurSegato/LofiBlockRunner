@@ -1,23 +1,22 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
+/// <summary>  
+/// Class handling the intro video
+/// </summary>
 public class S_IntroManager : MonoBehaviour
 {
-    [SerializeField]
-    private VideoPlayer videoPlayer;
+    #region Variables
+    [Header("Video Settings")]
+    [Tooltip("Video player in which the intro will play.")]
+    [SerializeField] private VideoPlayer _videoPlayer;
+    #endregion
 
-    private void OnEnable() => S_Actions.OnPlayIntro += PlayVideo;
+    #region Functions
+    // Make video player load the video file
+    private void Awake() => _videoPlayer.Prepare();
 
-    private void OnDisable() => S_Actions.OnPlayIntro -= PlayVideo;
-
-    private void Awake()
-    {
-        videoPlayer.Prepare();
-    }
-    private void PlayVideo()
-    {
-        videoPlayer.Play();
-    }
-
+    // Play the video file
+    private void PlayVideo() => _videoPlayer.Play();
+    #endregion
 }

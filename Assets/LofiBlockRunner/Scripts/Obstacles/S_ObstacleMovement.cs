@@ -17,11 +17,8 @@ public class S_ObstacleMovement : MonoBehaviour
     #endregion
 
     #region Functions
-    // Register functions to end game action
-    private void Awake()
-    {
-        S_Actions.EndGame += StopObstacles;
-    }
+    // Update if game is finished
+    private void Awake() => S_Actions.DisableObstacleMovement += () => _isGameFinished = true;
 
     // Move obstacles
     private void FixedUpdate()
@@ -29,12 +26,7 @@ public class S_ObstacleMovement : MonoBehaviour
         // Move the obstacle
         if (!_isGameFinished) _rb.AddForce(_speed * Vector3.back * Time.deltaTime);
         // If game has ended, then slow down the obstacle
-        else _rb.velocity = _rb.velocity / 1.01f;
-    }
-    // Function to update the flag
-    private void StopObstacles()
-    {
-        _isGameFinished = true;
+        else _rb.velocity = _rb.velocity / 1.02f;
     }
     #endregion
 }

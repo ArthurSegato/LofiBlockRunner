@@ -12,18 +12,13 @@ public class S_PlayerCollision : MonoBehaviour
     #region Functions
     private void Awake()
     {
-        S_Actions.DisablePlayerCollision += DisablePlayerCollision;
-        S_Actions.EnablePlayerCollision += EnablePlayerCollision;
+        S_Actions.DisablePlayerCollision += () => _isColliderEnabled = false;
+        S_Actions.EnablePlayerCollision += () => _isColliderEnabled = true;
     }
     // Check collision and flag
     void OnCollisionEnter(Collision collided)
     {
-        if (collided.transform.CompareTag("Obstacle") || _isColliderEnabled) S_Actions.EndGame();
+        if (collided.transform.CompareTag("Obstacle") && _isColliderEnabled) S_Actions.EndGame();
     }
-
-    // Disable colision detection, so the fragments of the broken mesh dont trigger collisions
-    private void DisablePlayerCollision() => _isColliderEnabled = false;
-
-    private void EnablePlayerCollision() => _isColliderEnabled = true;
     #endregion
 }

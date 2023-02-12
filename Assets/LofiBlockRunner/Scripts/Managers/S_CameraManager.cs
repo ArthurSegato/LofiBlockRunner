@@ -10,7 +10,7 @@ public class S_CameraManager : MonoBehaviour
     [Header("Cameras Settings")]
     [Tooltip("List with all cameras.")]
     [SerializeField] private CinemachineVirtualCamera[] _cameraList;
-    [Tooltip("Camera wich shoud be keep active.")]
+    [Tooltip("Camera that will remain active.")]
     [SerializeField] private CinemachineVirtualCamera _startCamera;
     #endregion
 
