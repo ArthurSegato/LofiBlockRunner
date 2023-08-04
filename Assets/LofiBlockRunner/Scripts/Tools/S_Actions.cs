@@ -6,19 +6,19 @@ using System;
 public static class S_Actions
 {
     #region States
-    public static Action OpenTutorial;
+    public static Action OpenMainMenu;
 
     public static Action OpenGame;
-
-    public static Action EndGame;
-
-    public static Action PauseGame;
-
-    public static Action OpenTitleScreen;
 
     public static Action OpenOptions;
 
     public static Action OpenCredits;
+
+    public static Action OpenTutorial;
+
+    public static Action EndGame;
+
+    public static Action PauseGame;
     #endregion
 
     #region Obstacles
@@ -60,50 +60,28 @@ public static class S_Actions
     #endregion
 
     #region Camera
-    public static Action EnableTitleScreenCamera;
-
-    public static Action DisableTitleScreenCamera;
+    public static Action EnableMainMenuCamera;
 
     public static Action EnableOptionsCamera;
 
-    public static Action DisableOptionsCamera;
-
     public static Action EnableCreditsCamera;
 
-    public static Action DisableCreditsCamera;
-
-    public static Action EnablePlayerCamera;
-
-    public static Action DisablePlayerCamera;
+    public static Action EnableGameCamera;
     #endregion
 
     #region UI
-    public static Action EnableTitleScreenUI;
+    public static Action OpenMainMenuUI;
 
-    public static Action DisableTitleScreenUI;
+    public static Action OpenOptionsUI;
 
-    public static Action EnableOptionsUI;
+    public static Action OpenCreditsUI;
 
-    public static Action DisableOptionsUI;
+    public static Action OpenGameUI;
 
-    public static Action EnableCreditsUI;
+    public static Action OpenEndScreenUI;
 
-    public static Action DisableCreditsUI;
+    public static Action OpenPauseUI;
 
-    public static Action EnableGameUI;
-
-    public static Action DisableGameUI;
-
-    public static Action EnableEndScreenUI;
-
-    public static Action DisableEndScreenUI;
-
-    public static Action EnablePauseUI;
-
-    public static Action DisablePauseUI;
-
-    public static Action EnableTutorialUI;
-
-    public static Action DisableTutorialUI;
+    public static Action OpenTutorialUI;
     #endregion
 }

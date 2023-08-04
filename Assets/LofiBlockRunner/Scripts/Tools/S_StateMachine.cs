@@ -8,7 +8,7 @@ public class S_StateMachine : MonoBehaviour
     private S_GameBaseState _currentState;
 
     public S_IntroState introState = new S_IntroState();
-    public S_TitleScreenState titleScreenState = new S_TitleScreenState();
+    public S_MainMenuState mainMenuState = new S_MainMenuState();
     public S_OptionsState optionsState = new S_OptionsState();
     public S_CreditsState creditsState = new S_CreditsState();
     public S_PlayingState playingState = new S_PlayingState();
@@ -21,7 +21,7 @@ public class S_StateMachine : MonoBehaviour
     // Register functions to Actions
     private void Awake()
     {
-        S_Actions.OpenTitleScreen += () => SwitchState(titleScreenState);
+        S_Actions.OpenMainMenu += () => SwitchState(mainMenuState);
         S_Actions.OpenOptions += () => SwitchState(optionsState);
         S_Actions.OpenCredits += () => SwitchState(creditsState);
         S_Actions.OpenTutorial += () => SwitchState(tutorialState);
@@ -32,7 +32,7 @@ public class S_StateMachine : MonoBehaviour
     private void Start()
     {
         // Set current state
-        _currentState = titleScreenState;
+        _currentState = mainMenuState;
         // Enter the current
         _currentState.EnterState(this);
     }

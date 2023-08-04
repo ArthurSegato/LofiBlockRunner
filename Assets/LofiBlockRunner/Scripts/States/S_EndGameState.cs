@@ -5,8 +5,8 @@ public class S_EndGameState : S_GameBaseState
 {
     public override void EnterState(S_StateMachine gameState)
     {
-        S_Actions.EnableEndScreenUI();
-        S_Actions.EnablePlayerCamera();
+        S_Actions.OpenEndScreenUI();
+        S_Actions.EnableGameCamera();
         S_Actions.DisablePlayerInput();
         S_Actions.DisablePlayerCollision();
         S_Actions.DisableObstacleMovement();
@@ -17,10 +17,8 @@ public class S_EndGameState : S_GameBaseState
     public override void LeaveState(S_StateMachine gameState)
     {
         S_Actions.ResetPlayer();
-        S_Actions.DisableEndScreenUI();
         S_Actions.EnablePlayerInput();
         S_Actions.EnablePlayerCollision();
-        S_Actions.DisablePlayerCamera();
         S_Actions.DestroyObstacles();
     }
 }
