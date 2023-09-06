@@ -1,11 +1,9 @@
 # LofiBlockRunner Final Technical Report
 
 ## Summary:
-
-LofiBlockRunner was initially developed based on a [Brackeys](https://www.youtube.com/watch?v=j48LtUkZRjU&list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6) tutorial on youtube, and was submitted as an entry for a selection process, the process offered a vacancy to be part of the VR lab at UVV, although I didn't get the position, I continued developing the game and later releasing it on Itch.io (V1.0.0), from time to time I come back and redo this project to compare my evolution in game development, the game is currently on version 2.0.0.
+LofiBlockRunner is an endless runner where a block has to avoid obstacles while lofi music plays in the background. It was initially developed based on a [Brackeys tutorial on youtube](https://www.youtube.com/watch?v=j48LtUkZRjU&list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6), and was submitted as an application for an internship at UVV's virtual reality lab. Although I didn't get the position, I continued to develop the game and later published it on Itch.io (v1.0.0), but regurlarly I come back to this project and redo everything from scratch to compare my evolution in game development.
 
 ## Table of Contents:
-
 - [LofiBlockRunner Final Technical Report](#lofiblockrunner-final-technical-report)
   * [Summary](#summary)
   * [Table of Contents](#table-of-contents)
@@ -37,7 +35,7 @@ Lofi Block Runner is an endless runner where a block has to avoid obstacles whil
 
 ### Localization:
 
-The whole game is localised in English (default), Portuguese and Spanish, but can be localised to more languages if required.
+The entire game is localised in English (default), Portuguese and Spanish, but can be localised to more languages if required.
 
 ### Save System:
 
