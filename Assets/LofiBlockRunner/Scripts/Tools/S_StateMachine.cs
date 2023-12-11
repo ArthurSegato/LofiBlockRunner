@@ -31,7 +31,7 @@ public class S_StateMachine : MonoBehaviour
     }
     private void Start()
     {
-        // Set current state
+        // Set initial state
         _currentState = mainMenuState;
         // Enter the current
         _currentState.EnterState(this);

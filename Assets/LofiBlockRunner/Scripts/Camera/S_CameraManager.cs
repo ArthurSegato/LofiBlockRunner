@@ -31,7 +31,7 @@ public class S_CameraManager : MonoBehaviour
 
     public void SwitchCamera(CameraType _type)
     {
-        // Turn of the last camera
+        // Turn off the last camera
         if (_lastActiveCamera != null) _lastActiveCamera.gameObject.SetActive(false);
 
         // Find the type of the next camera
