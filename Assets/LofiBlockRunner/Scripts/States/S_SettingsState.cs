@@ -1,13 +1,13 @@
 using UnityEngine;
 /// <summary>  
-/// Options state, handles time freeze, options camera and ui
+/// Settings state, handles time freeze, options camera and ui
 /// </summary>
-public class S_OptionsState : S_GameBaseState
+public class S_SettingsState : S_GameBaseState
 {
     public override void EnterState(S_StateMachine gameState)
     {
-        S_Actions.EnableOptionsCamera();
-        S_Actions.OpenOptionsUI();
+        S_Actions.EnableSettingsCamera();
+        S_Actions.OpenSettingsUI();
         Time.timeScale = 0f;
     }
 

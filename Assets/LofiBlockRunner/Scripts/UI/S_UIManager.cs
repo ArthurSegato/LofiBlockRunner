@@ -4,7 +4,7 @@ using System;
 public enum CanvasType
 {
     MainMenu,
-    Options,
+    Settings,
     Credits,
     Tutorial,
     GameUI,
@@ -26,7 +26,7 @@ public class S_UIManager : MonoBehaviour
 
         // Register Trigger
         S_Actions.OpenMainMenuUI += () => SwitchCanvas(CanvasType.MainMenu);
-        S_Actions.OpenOptionsUI += () => SwitchCanvas(CanvasType.Options);
+        S_Actions.OpenSettingsUI += () => SwitchCanvas(CanvasType.Settings);
         S_Actions.OpenCreditsUI += () => SwitchCanvas(CanvasType.Credits);
         S_Actions.OpenTutorialUI += () => SwitchCanvas(CanvasType.Tutorial);
         S_Actions.OpenGameUI += () => SwitchCanvas(CanvasType.GameUI);

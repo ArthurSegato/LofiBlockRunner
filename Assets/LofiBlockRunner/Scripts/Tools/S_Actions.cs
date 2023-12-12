@@ -10,7 +10,7 @@ public static class S_Actions
 
     public static Action OpenGame;
 
-    public static Action OpenOptions;
+    public static Action OpenSettings;
 
     public static Action OpenCredits;
 
@@ -62,7 +62,7 @@ public static class S_Actions
     #region Camera
     public static Action EnableMainMenuCamera;
 
-    public static Action EnableOptionsCamera;
+    public static Action EnableSettingsCamera;
 
     public static Action EnableCreditsCamera;
 
@@ -72,7 +72,7 @@ public static class S_Actions
     #region UI
     public static Action OpenMainMenuUI;
 
-    public static Action OpenOptionsUI;
+    public static Action OpenSettingsUI;
 
     public static Action OpenCreditsUI;
 

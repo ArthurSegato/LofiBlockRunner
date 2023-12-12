@@ -9,7 +9,7 @@ public class S_StateMachine : MonoBehaviour
 
     public S_IntroState introState = new S_IntroState();
     public S_MainMenuState mainMenuState = new S_MainMenuState();
-    public S_OptionsState optionsState = new S_OptionsState();
+    public S_SettingsState settingsState = new S_SettingsState();
     public S_CreditsState creditsState = new S_CreditsState();
     public S_PlayingState playingState = new S_PlayingState();
     public S_EndGameState endGameState = new S_EndGameState();
@@ -22,7 +22,7 @@ public class S_StateMachine : MonoBehaviour
     private void Awake()
     {
         S_Actions.OpenMainMenu += () => SwitchState(mainMenuState);
-        S_Actions.OpenOptions += () => SwitchState(optionsState);
+        S_Actions.OpenSettings += () => SwitchState(settingsState);
         S_Actions.OpenCredits += () => SwitchState(creditsState);
         S_Actions.OpenTutorial += () => SwitchState(tutorialState);
         S_Actions.OpenGame += () => SwitchState(playingState);

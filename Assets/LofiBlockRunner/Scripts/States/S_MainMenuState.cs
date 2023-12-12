@@ -1,7 +1,6 @@
 /// <summary>  
 /// Title Screen state, handles player input, camera and  ui
 /// </summary>
-/// farofa
 public class S_MainMenuState : S_GameBaseState
 {
     private bool hasObstaclesSpawned = false;

@@ -4,7 +4,7 @@ using System;
 public enum CameraType
 {
     MainMenu,
-    Options,
+    Settings,
     Credits,
     Game
 }
@@ -24,7 +24,7 @@ public class S_CameraManager : MonoBehaviour
 
         // Register Trigger
         S_Actions.EnableMainMenuCamera += () => SwitchCamera(CameraType.MainMenu);
-        S_Actions.EnableOptionsCamera += () => SwitchCamera(CameraType.Options);
+        S_Actions.EnableSettingsCamera += () => SwitchCamera(CameraType.Settings);
         S_Actions.EnableCreditsCamera += () => SwitchCamera(CameraType.Credits);
         S_Actions.EnableGameCamera += () => SwitchCamera(CameraType.Game);
     }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public enum ButtonType
 {
     Start_Game,
-    Open_Options,
+    Open_Settings,
     Open_Credits,
     Quit_Game,
     Resume_Game,
@@ -33,8 +33,8 @@ public class S_ButtonController : MonoBehaviour
         {
             case ButtonType.Start_Game:
                 S_Actions.OpenGame(); break;
-            case ButtonType.Open_Options:
-                S_Actions.OpenOptions(); break;
+            case ButtonType.Open_Settings:
+                S_Actions.OpenSettings(); break;
             case ButtonType.Open_Credits:
                 S_Actions.OpenCredits(); break;
             case ButtonType.Quit_Game:
