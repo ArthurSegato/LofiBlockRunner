@@ -16,35 +16,45 @@ public class S_PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed = 500f;
     private bool _isPaused = false;
     private bool _isTutorial = false;
-
     private Vector3 _movement;
     #endregion
 
-    #region Functions
+    #region Methods
     private void Awake()
     {
-        S_Actions.EnablePlayerInput += () => this.enabled = true;
-        S_Actions.DisablePlayerInput += () => this.enabled = false;
-        S_Actions.EnablePlayerPause += () => _isPaused = true;
-        S_Actions.DisablePlayerPause += () => _isPaused = false;
-        S_Actions.EnablePlayerTutorial += () => _isTutorial = true;
-        S_Actions.DisablePlayerTutorial += () => _isTutorial = false;
+        S_Actions.Player_Enable_Input += () => this.enabled = true;
+        S_Actions.Player_Disable_Input += () => this.enabled = false;
+        S_Actions.Player_Enable_Pause += () => _isPaused = true;
+        S_Actions.Player_Disable_Pause += () => _isPaused = false;
+        S_Actions.Player_Enable_Tutorial += () => _isTutorial = true;
+        S_Actions.Player_Disable_Tutorial += () => _isTutorial = false;
+    }
+    private void OnDestroy()
+    {
+        S_Actions.Player_Enable_Input -= () => this.enabled = true;
+        S_Actions.Player_Disable_Input -= () => this.enabled = false;
+        S_Actions.Player_Enable_Pause -= () => _isPaused = true;
+        S_Actions.Player_Disable_Pause -= () => _isPaused = false;
+        S_Actions.Player_Enable_Tutorial -= () => _isTutorial = true;
+        S_Actions.Player_Disable_Tutorial -= () => _isTutorial = false;
     }
 
-    // Receives input from player
+    // When player press the lateral movement keys, move the block
     private void OnMove(InputValue value) => _movement = value.Get<Vector2>();
 
-    private void OnPause()
+    // When player hit pause button, then pause game
+    private void OnPause() 
     {
-        if (_isPaused == true) S_Actions.PauseGame();
+        if (_isPaused == true) S_Actions.State_Pause();
     }
 
+    // When player press the confirm button, start game
     private void OnConfirm()
     {
-        if(_isTutorial == true) S_Actions.OpenGame();
+        if(_isTutorial == true) S_Actions.State_Game();
     }
 
-    // Update position based on player input
+    // Update player position
     private void FixedUpdate() => _rb.AddForce(_speed * _movement * Time.deltaTime);
     #endregion
 }

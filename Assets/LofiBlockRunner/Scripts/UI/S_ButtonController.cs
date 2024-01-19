@@ -1,24 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public enum ButtonType
 {
-    Start_Game,
-    Open_Settings,
-    Open_Credits,
+    State_MainMenu,
+    State_Game,
+    State_Settings,
+    State_Credits,
     Quit_Game,
-    Resume_Game,
-    Open_MainMenu,
-    Open_Programmer,
-    Open_Sfx,
-    Open_Font,
-    Open_MoralSupport
+    Visit_Programmer,
+    Visit_Sfx,
+    Visit_Font,
 }
 
+/// <summary>  
+/// Handles button interactions like clicks, hover and etc
+/// </summary>
 [RequireComponent(typeof(Button))]
 public class S_ButtonController : MonoBehaviour
 {
-    public ButtonType buttonType;
+    [SerializeField] private ButtonType _buttonType;
+
     Button uiButton;
 
     private void Start()
@@ -29,28 +32,24 @@ public class S_ButtonController : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        switch (buttonType)
+        switch (_buttonType)
         {
-            case ButtonType.Start_Game:
-                S_Actions.OpenGame(); break;
-            case ButtonType.Open_Settings:
-                S_Actions.OpenSettings(); break;
-            case ButtonType.Open_Credits:
-                S_Actions.OpenCredits(); break;
+            case ButtonType.State_MainMenu:
+                S_Actions.State_MainMenu(); break;
+            case ButtonType.State_Game:
+                S_Actions.State_Game(); break;
+            case ButtonType.State_Settings:
+                S_Actions.State_Settings(); break;
+            case ButtonType.State_Credits:
+                S_Actions.State_Credits(); break;
             case ButtonType.Quit_Game:
                 Application.Quit(); break;
-            case ButtonType.Resume_Game:
-                S_Actions.OpenGame(); break;
-            case ButtonType.Open_MainMenu:
-                S_Actions.OpenMainMenu(); break;
-            case ButtonType.Open_Programmer:
+            case ButtonType.Visit_Programmer:
                 Application.OpenURL("https://github.com/ArthurSegato"); break;
-            case ButtonType.Open_Sfx:
-                Application.OpenURL("https://www.instagram.com/lilorecording/"); break;
-            case ButtonType.Open_Font:
+            case ButtonType.Visit_Sfx:
+                Application.OpenURL("https://www.instagram.com/carvalholilomusica/"); break;
+            case ButtonType.Visit_Font:
                 Application.OpenURL("https://fonts.google.com/specimen/Roboto"); break;
-            case ButtonType.Open_MoralSupport:
-                Application.OpenURL("https://www.instagram.com/dr.ramon.ferraz/"); break;
         }
     }
 }

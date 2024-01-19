@@ -13,7 +13,7 @@ public class S_MaterialInstance : MonoBehaviour
     [SerializeField] private Color _color;
     #endregion
 
-    #region Functions
+    #region Methods
     void Start()
     {
         // Create a Material Instance

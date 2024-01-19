@@ -6,82 +6,82 @@ using System;
 public static class S_Actions
 {
     #region States
-    public static Action OpenMainMenu;
+    public static Action State_Tutorial;
 
-    public static Action OpenGame;
+    public static Action State_MainMenu;
 
-    public static Action OpenSettings;
+    public static Action State_Settings;
 
-    public static Action OpenCredits;
+    public static Action State_Credits;
 
-    public static Action OpenTutorial;
+    public static Action State_Game;
 
-    public static Action EndGame;
+    public static Action State_Pause;
 
-    public static Action PauseGame;
+    public static Action State_GameOver;
     #endregion
 
     #region Obstacles
-    public static Action EnableObstacleManager;
+    public static Action Obstacle_Enable_Manager;
 
-    public static Action DisableObstacleManager;
+    public static Action Obstacle_Disable_Manager;
 
-    public static Action DestroyObstacles;
+    public static Action Obstacle_Destroy;
 
-    public static Action HiddeObstacles;
+    public static Action Obstacle_Animate;
 
-    public static Action DisableObstacleMovement;
+    public static Action Obstacle_Disable_Movement;
 
-    public static Action ObstacleSpawnedFlag;
+    public static Action Obstacle_Spawned_Flag;
 
-    public static Action ObstacleDestroyedFlag;
+    public static Action Obstacle_Destroyed_Flag;
     #endregion
 
     #region Player
-    public static Action ResetPlayer;
+    public static Action Player_Reset;
 
-    public static Action BrakePlayer;
+    public static Action Player_Brake;
 
-    public static Action EnablePlayerInput;
+    public static Action Player_Enable_Input;
 
-    public static Action DisablePlayerInput;
+    public static Action Player_Disable_Input;
 
-    public static Action EnablePlayerCollision;
+    public static Action Player_Enable_Collision;
 
-    public static Action DisablePlayerCollision;
+    public static Action Player_Disable_Collision;
 
-    public static Action EnablePlayerPause;
+    public static Action Player_Enable_Pause;
 
-    public static Action DisablePlayerPause;
+    public static Action Player_Disable_Pause;
 
-    public static Action EnablePlayerTutorial;
+    public static Action Player_Enable_Tutorial;
 
-    public static Action DisablePlayerTutorial;
+    public static Action Player_Disable_Tutorial;
     #endregion
 
     #region Camera
-    public static Action EnableMainMenuCamera;
+    public static Action Camera_Enable_MainMenu;
 
-    public static Action EnableSettingsCamera;
+    public static Action Camera_Enable_Settings;
 
-    public static Action EnableCreditsCamera;
+    public static Action Camera_Enable_Credits;
 
-    public static Action EnableGameCamera;
+    public static Action Camera_Enable_Game;
     #endregion
 
     #region UI
-    public static Action OpenMainMenuUI;
+    public static Action UI_Enable_Tutorial;
 
-    public static Action OpenSettingsUI;
+    public static Action UI_Enable_MainMenu;
 
-    public static Action OpenCreditsUI;
+    public static Action UI_Enable_Settings;
 
-    public static Action OpenGameUI;
+    public static Action UI_Enable_Credits;
 
-    public static Action OpenEndScreenUI;
+    public static Action UI_Enable_Game;
 
-    public static Action OpenPauseUI;
+    public static Action UI_Enable_Pause;
 
-    public static Action OpenTutorialUI;
+    public static Action UI_Enable_GameOver;
     #endregion
 }

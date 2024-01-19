@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-7916816725654848615
+--- !u!28 &-6636563627921656297
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,7 +48,7 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!21 &-6299403051328316842
+--- !u!21 &-3785729308242401090
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Medium SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -84,7 +84,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -7916816725654848615}
+        m_Texture: {fileID: -6636563627921656297}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -122,7 +122,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioB: 1
     - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: Roboto-Medium SDF
   m_EditorClassIdentifier: 
   hashCode: -737250198
-  material: {fileID: -6299403051328316842}
+  material: {fileID: -3785729308242401090}
   materialHashCode: 1251382410
   m_Version: 1.1.0
   m_SourceFontFileGUID: 9b23035da44a18f459efd44b8784d765
@@ -4590,7 +4590,7 @@ MonoBehaviour:
     m_GlyphIndex: 422
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: -7916816725654848615}
+  - {fileID: -6636563627921656297}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0

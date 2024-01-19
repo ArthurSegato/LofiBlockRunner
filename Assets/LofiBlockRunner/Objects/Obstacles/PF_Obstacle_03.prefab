@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 400060919738143633}
   - component: {fileID: 4180058351392264289}
   - component: {fileID: 8929578110503364062}
-  - component: {fileID: 8094217461696438460}
+  - component: {fileID: 613137280333102031}
+  - component: {fileID: 6355284392769886206}
   m_Layer: 0
   m_Name: SM_Obstacle_Right
   m_TagString: Obstacle
@@ -30,13 +31,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574313154728006116}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.5, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9146905358530488669}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1790761705218827270
 MeshFilter:
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1ab3eb1aaafb640b74f43f98dfa11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8094217461696438460
+--- !u!114 &613137280333102031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +172,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574313154728006116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d1323253edd604eb134c1fa401e953, type: 3}
+  m_Script: {fileID: 11500000, guid: 177e27f5237598dc4bbd27a1464f02fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6355284392769886206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574313154728006116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588d6585f7a2a334e89c061d5239e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}
@@ -198,6 +211,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6577485207537535356}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -206,7 +220,6 @@ Transform:
   - {fileID: 5487635526493513538}
   - {fileID: 1409105736751394143}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8944507671513943373
 GameObject:
@@ -223,7 +236,8 @@ GameObject:
   - component: {fileID: 7545458701264168048}
   - component: {fileID: 3380703802129659838}
   - component: {fileID: 5326193420711280614}
-  - component: {fileID: 7613398645978472805}
+  - component: {fileID: 3280297750945743191}
+  - component: {fileID: 4099390277863869898}
   m_Layer: 0
   m_Name: SM_Obstacle_Left
   m_TagString: Obstacle
@@ -238,13 +252,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944507671513943373}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.5, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9146905358530488669}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6660223233369755995
 MeshFilter:
@@ -370,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1ab3eb1aaafb640b74f43f98dfa11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7613398645978472805
+--- !u!114 &3280297750945743191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,7 +393,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8944507671513943373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d1323253edd604eb134c1fa401e953, type: 3}
+  m_Script: {fileID: 11500000, guid: 177e27f5237598dc4bbd27a1464f02fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4099390277863869898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944507671513943373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588d6585f7a2a334e89c061d5239e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: ddb49b868a5696047a9b1888796a96b0, type: 2}

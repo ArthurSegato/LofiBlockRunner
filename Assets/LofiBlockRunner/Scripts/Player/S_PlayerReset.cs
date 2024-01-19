@@ -1,11 +1,12 @@
 using UnityEngine;
 
 /// <summary>  
-/// Class responsible for the reseting the player.
+/// Handles player reset
 /// </summary>
 public class S_PlayerReset : MonoBehaviour
 {
-    private void Awake() => S_Actions.ResetPlayer += ResetPlayer;
+    private void Awake() => S_Actions.Player_Reset += ResetPlayer;
+    private void OnDestroy() => S_Actions.Player_Reset -= ResetPlayer;
 
     private void ResetPlayer()
     {

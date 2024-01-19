@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>  
-/// Class responsible for the obstacles spawning.
+/// Handles obstacle spawning.
 /// </summary>
 public class S_ObstacleSpawner : MonoBehaviour
 {
@@ -16,11 +16,17 @@ public class S_ObstacleSpawner : MonoBehaviour
     //teste
     #endregion
 
-    #region Functions
+    #region Methods
     private void Awake()
     {
-        S_Actions.EnableObstacleManager += () => this.gameObject.SetActive(true);
-        S_Actions.DisableObstacleManager += () => this.gameObject.SetActive(false);
+        S_Actions.Obstacle_Enable_Manager += () => this.gameObject.SetActive(true);
+        S_Actions.Obstacle_Disable_Manager += () => this.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        S_Actions.Obstacle_Enable_Manager -= () => this.gameObject.SetActive(true);
+        S_Actions.Obstacle_Disable_Manager -= () => this.gameObject.SetActive(false);
     }
 
     // Starts obstacle spawning when becomes enabled

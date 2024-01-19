@@ -9,6 +9,9 @@ public enum CameraType
     Game
 }
 
+/// <summary>  
+/// Controls camera logic
+/// </summary>
 public class S_CameraManager : MonoBehaviour
 {
     #region Variables
@@ -16,36 +19,45 @@ public class S_CameraManager : MonoBehaviour
     private S_CameraController _lastActiveCamera;
     #endregion
 
-    #region Functions
+    #region Methods
     private void Awake()
     {
         // Disable all cameras
         foreach (S_CameraController camera in _cameraList) camera.gameObject.SetActive(false);
 
-        // Register Trigger
-        S_Actions.EnableMainMenuCamera += () => SwitchCamera(CameraType.MainMenu);
-        S_Actions.EnableSettingsCamera += () => SwitchCamera(CameraType.Settings);
-        S_Actions.EnableCreditsCamera += () => SwitchCamera(CameraType.Credits);
-        S_Actions.EnableGameCamera += () => SwitchCamera(CameraType.Game);
+        // Register triggers
+        S_Actions.Camera_Enable_MainMenu += () => SwitchCamera(CameraType.MainMenu);
+        S_Actions.Camera_Enable_Settings += () => SwitchCamera(CameraType.Settings);
+        S_Actions.Camera_Enable_Credits += () => SwitchCamera(CameraType.Credits);
+        S_Actions.Camera_Enable_Game += () => SwitchCamera(CameraType.Game);
     }
 
-    public void SwitchCamera(CameraType _type)
+    private void OnDestroy()
     {
-        // Turn off the last camera
-        if (_lastActiveCamera != null) _lastActiveCamera.gameObject.SetActive(false);
+        // Unregister triggers
+        S_Actions.Camera_Enable_MainMenu -= () => SwitchCamera(CameraType.MainMenu);
+        S_Actions.Camera_Enable_Settings -= () => SwitchCamera(CameraType.Settings);
+        S_Actions.Camera_Enable_Credits -= () => SwitchCamera(CameraType.Credits);
+        S_Actions.Camera_Enable_Game -= () => SwitchCamera(CameraType.Game);
+    }
 
-        // Find the type of the next camera
+    private void SwitchCamera(CameraType _type)
+    {
+        // Search for the desired camera
         S_CameraController desiredCamera = Array.Find(_cameraList, x => x.cameraType == _type);
 
-        // Check if next camera exists
-        if (desiredCamera != null)
+        // If dind find it, exit early by throwing a warning
+        if (desiredCamera == null) Debug.LogWarning("The desired camera was not found!");
+        
+        else
         {
-            // Turn on next camera
-            desiredCamera.gameObject.SetActive(true);
-            // Set next camera as last
+            // Turn off the last camera
+            if (_lastActiveCamera != null) _lastActiveCamera.gameObject.SetActive(false);
+            // Update last camera
             _lastActiveCamera = desiredCamera;
+            // Turn on desired camera
+            desiredCamera.gameObject.SetActive(true);
         }
-        else Debug.LogWarning("The desired camera was not found!");
     }
     #endregion
 }

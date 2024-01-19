@@ -1,12 +1,11 @@
 using UnityEngine;
 
 /// <summary>  
-/// Class responsible for handling obstacles collision,
-/// When colliding with the barrier at the end of the map, the obstacle is destroyed from memory
+/// Handle obstacle destruction when colliding with barrier at the end of plataform
 /// </summary>
 public class S_ObstacleCollision : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collided)
+    private void OnCollisionEnter(Collision collided)
     {
         if (collided.transform.CompareTag("ObstacleBarrier")) Destroy(transform.parent.gameObject);
     }

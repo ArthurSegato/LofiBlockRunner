@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>  
-/// Class responsible for the handling player collision.
+/// Handles player collision.
 /// </summary>
 public class S_PlayerCollision : MonoBehaviour
 {
@@ -9,16 +9,21 @@ public class S_PlayerCollision : MonoBehaviour
     private bool _isColliderEnabled = true;
     #endregion
 
-    #region Functions
+    #region Methods
     private void Awake()
     {
-        S_Actions.DisablePlayerCollision += () => _isColliderEnabled = false;
-        S_Actions.EnablePlayerCollision += () => _isColliderEnabled = true;
+        S_Actions.Player_Disable_Collision += () => _isColliderEnabled = false;
+        S_Actions.Player_Enable_Collision += () => _isColliderEnabled = true;
+    }
+    private void OnDestroy()
+    {
+        S_Actions.Player_Disable_Collision -= () => _isColliderEnabled = false;
+        S_Actions.Player_Enable_Collision -= () => _isColliderEnabled = true;
     }
     // Check collision and flag
     void OnCollisionEnter(Collision collided)
     {
-        if (collided.transform.CompareTag("Obstacle") && _isColliderEnabled) S_Actions.EndGame();
+        if (_isColliderEnabled && collided.transform.CompareTag("Obstacle")) S_Actions.State_GameOver();
     }
     #endregion
 }
