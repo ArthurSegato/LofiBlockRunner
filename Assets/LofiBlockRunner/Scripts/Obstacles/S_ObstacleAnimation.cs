@@ -1,31 +1,44 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>  
-/// Handle obstacle animation on game over
+/// Handles obstacle animation on game over by applying a dissolve shader effect.
 /// </summary>
 public class S_ObstacleAnimation : MonoBehaviour
 {
-    #region Variables
     [Header("Shader Config")]
-    [Tooltip("Select the shader material")]
+    [Tooltip("Material with the dissolve shader effect")]
     [SerializeField] private Material _material;
-    private float _startDelay = 2.5f;
-    private float _speed = 0.025f;
-    private float _counter = 0.15f;
-    #endregion
+    
+    [Tooltip("Delay before starting the shader animation")]
+    [SerializeField] private float _delay = 2.5f;
 
-    #region Methods
-    private void Awake() => S_Actions.Obstacle_Animate += StartAnimation;
+    [Tooltip("Speed of the shader animation")]
+    [SerializeField] private float _speed = 0.025f;
 
-    private void OnDestroy() => S_Actions.Obstacle_Animate -= StartAnimation;
+    // Dissolve effect intensity
+    private float _intensity = 0.15f;
 
-    private void StartAnimation() => InvokeRepeating(nameof(ApplyDissolve), _startDelay, _speed);
+    // Register animation trigger 
+    private void OnEnable() => S_Actions.Obstacle_Animate += () => StartCoroutine(Dissolve());
+    
+    // Clear trigger
+    private void OnDisable() => S_Actions.Obstacle_Animate -= () => StartCoroutine(Dissolve());
 
-    private void ApplyDissolve()
+    private IEnumerator Dissolve()
     {
-        _counter += 0.01f;
-        _material = GetComponent<Renderer>().material;
-        _material.SetFloat("_Dissolve", _counter);
+        // Ensure material exists and was not "dissolved"
+        if (_material == null || _material.GetFloat("_Dissolve") >= 1f) yield break;
+
+        // Wait for the specified time before starting the animation
+        yield return new WaitForSeconds(_delay);
+
+        // Increment the dissolve effect intensity until it reaches its maximum value
+        while (_intensity < 1f)
+        {
+            _intensity += _speed * Time.deltaTime;
+            _material.SetFloat("_Dissolve", _intensity);
+            yield return null;
+        }
     }
-    #endregion
 }

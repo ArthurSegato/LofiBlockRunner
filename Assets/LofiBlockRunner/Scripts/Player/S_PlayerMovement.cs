@@ -8,39 +8,38 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class S_PlayerMovement : MonoBehaviour
 {
-    #region Variables
     [Tooltip("Player RigidBody.")]
     [SerializeField] private Rigidbody _rb;
+    
     [Header("Movement")]
     [Tooltip("Speed of the lateral movement of the block.")]
     [SerializeField] private float _speed = 500f;
+    
     private bool _isPaused = false;
     private bool _isTutorial = false;
-    private Vector3 _movement;
-    #endregion
+    private Vector2 _movementInput;
 
-    #region Methods
-    private void Awake()
+    // Register player movement triggers
+    private void OnEnable()
     {
-        S_Actions.Player_Enable_Input += () => this.enabled = true;
-        S_Actions.Player_Disable_Input += () => this.enabled = false;
+        S_Actions.Player_Enable_Input += () => enabled = true;
+        S_Actions.Player_Disable_Input += () => enabled = false;
         S_Actions.Player_Enable_Pause += () => _isPaused = true;
         S_Actions.Player_Disable_Pause += () => _isPaused = false;
         S_Actions.Player_Enable_Tutorial += () => _isTutorial = true;
         S_Actions.Player_Disable_Tutorial += () => _isTutorial = false;
     }
-    private void OnDestroy()
+
+    // Clear triggers
+    private void OnDisable()
     {
-        S_Actions.Player_Enable_Input -= () => this.enabled = true;
-        S_Actions.Player_Disable_Input -= () => this.enabled = false;
+        S_Actions.Player_Enable_Input -= () => enabled = true;
+        S_Actions.Player_Disable_Input -= () => enabled = false;
         S_Actions.Player_Enable_Pause -= () => _isPaused = true;
         S_Actions.Player_Disable_Pause -= () => _isPaused = false;
         S_Actions.Player_Enable_Tutorial -= () => _isTutorial = true;
         S_Actions.Player_Disable_Tutorial -= () => _isTutorial = false;
     }
-
-    // When player press the lateral movement keys, move the block
-    private void OnMove(InputValue value) => _movement = value.Get<Vector2>();
 
     // When player hit pause button, then pause game
     private void OnPause() 
@@ -54,7 +53,9 @@ public class S_PlayerMovement : MonoBehaviour
         if(_isTutorial == true) S_Actions.State_Game();
     }
 
+    // When player press the lateral movement keys, move the block
+    private void OnMove(InputValue value) => _movementInput = value.Get<Vector2>();
+
     // Update player position
-    private void FixedUpdate() => _rb.AddForce(_speed * _movement * Time.deltaTime);
-    #endregion
+    private void FixedUpdate() => _rb.AddForce(_speed * new Vector3(_movementInput.x, 0, _movementInput.y) * Time.deltaTime);
 }

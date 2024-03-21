@@ -38,9 +38,9 @@ public static class S_Actions
     #endregion
 
     #region Player
-    public static Action Player_Reset;
+    public static Action Player_Reset_Position;
 
-    public static Action Player_Brake;
+    public static Action Player_Swap_Mesh;
 
     public static Action Player_Enable_Input;
 

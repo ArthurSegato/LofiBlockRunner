@@ -1,42 +1,36 @@
 using UnityEngine;
 
 /// <summary>  
-/// Class responsible for changing meshs
+/// Swap player mesh between 
 /// </summary>
 public class S_PlayerMeshChanger : MonoBehaviour
 {
-    #region Variables
-    [Header("Mesh Selection")]
+    [Header("Mesh Settings")]
     [Tooltip("Original Mesh")]
     [SerializeField] private GameObject _originalMesh;
+
     [Tooltip("Broken Mesh")]
     [SerializeField] private GameObject _brokenMesh;
-    #endregion
 
-    #region Listeners
-    private void Awake()
-    {
-        S_Actions.Player_Brake += BrakeMesh;
-        S_Actions.Player_Reset += FixMesh;
-    }
-    private void OnDestroy()
-    {
-        S_Actions.Player_Brake -= BrakeMesh;
-        S_Actions.Player_Reset -= FixMesh;
-    }
-    #endregion
+    private bool _lastState = false;
 
-    #region Methods
-    private void BrakeMesh()
+    // Register triggers for mesh swap
+    private void OnEnable()
     {
-        _originalMesh.SetActive(false);
-        _brokenMesh.SetActive(true);
+        S_Actions.Player_Swap_Mesh += SwapMesh;
+    }
+    private void OnDisable()
+    {
+        S_Actions.Player_Swap_Mesh -= SwapMesh;
     }
 
-    private void FixMesh()
+    private void SwapMesh()
     {
-        _originalMesh.SetActive(true);
-        _brokenMesh.SetActive(false);
+        // Swap mesh state
+        _lastState = !_lastState;
+
+        // Update player
+        _originalMesh.SetActive(_lastState);
+        _brokenMesh.SetActive(!_lastState);
     }
-    #endregion
 }

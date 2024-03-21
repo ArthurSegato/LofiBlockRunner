@@ -4,14 +4,14 @@ using UnityEngine.EventSystems;
 
 public enum ButtonType
 {
-    State_MainMenu,
-    State_Game,
-    State_Settings,
-    State_Credits,
+    Switch_State_MainMenu,
+    Switch_State_Game,
+    Switch_State_Settings,
+    Switch_State_Credits,
     Quit_Game,
-    Visit_Programmer,
-    Visit_Sfx,
-    Visit_Font,
+    Open_Programmer_Url,
+    Open_Sfx_Url,
+    Open_Font_Url,
 }
 
 /// <summary>  
@@ -24,7 +24,7 @@ public class S_ButtonController : MonoBehaviour
 
     Button uiButton;
 
-    private void Start()
+    private void OnEnable()
     {
         uiButton = GetComponent<Button>();
         uiButton.onClick.AddListener(OnButtonClicked);
@@ -34,21 +34,21 @@ public class S_ButtonController : MonoBehaviour
     {
         switch (_buttonType)
         {
-            case ButtonType.State_MainMenu:
+            case ButtonType.Switch_State_MainMenu:
                 S_Actions.State_MainMenu(); break;
-            case ButtonType.State_Game:
+            case ButtonType.Switch_State_Game:
                 S_Actions.State_Game(); break;
-            case ButtonType.State_Settings:
+            case ButtonType.Switch_State_Settings:
                 S_Actions.State_Settings(); break;
-            case ButtonType.State_Credits:
+            case ButtonType.Switch_State_Credits:
                 S_Actions.State_Credits(); break;
             case ButtonType.Quit_Game:
                 Application.Quit(); break;
-            case ButtonType.Visit_Programmer:
+            case ButtonType.Open_Programmer_Url:
                 Application.OpenURL("https://github.com/ArthurSegato"); break;
-            case ButtonType.Visit_Sfx:
-                Application.OpenURL("https://www.instagram.com/carvalholilomusica/"); break;
-            case ButtonType.Visit_Font:
+            case ButtonType.Open_Sfx_Url:
+                Application.OpenURL("https://www.instagram.com/_lilopipa/"); break;
+            case ButtonType.Open_Font_Url:
                 Application.OpenURL("https://fonts.google.com/specimen/Roboto"); break;
         }
     }

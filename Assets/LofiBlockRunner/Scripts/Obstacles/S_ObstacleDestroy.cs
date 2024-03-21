@@ -1,13 +1,25 @@
 using UnityEngine;
 
 /// <summary>  
-/// Handle obstacle destruction on game over
+/// Handles obstacle destruction on game over.
 /// </summary>
 public class S_ObstacleDestroy : MonoBehaviour
 {
-    #region Methods
-    private void Awake() => S_Actions.Obstacle_Destroy += DestroyObstacle;
-    private void OnDestroy() => S_Actions.Obstacle_Destroy -= DestroyObstacle;
-    private void DestroyObstacle() => Destroy(transform.parent.gameObject);
-    #endregion
+    // Register trigger to destroy the obstacle
+    private void OnEnable() => S_Actions.Obstacle_Destroy += DestroyObstacle;
+
+    // Clear trigger
+    private void OnDisable() => S_Actions.Obstacle_Destroy -= DestroyObstacle;
+
+    private void DestroyObstacle()
+    {
+        // Ensure that the parent game object exists before destroying it
+        if (transform.parent == null)
+        {
+            Debug.LogWarning("Parent game object not found for obstacle destruction.");
+            return;
+        }
+        
+        Destroy(transform.parent.gameObject);
+    }
 }
